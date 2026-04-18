@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Страница не найдена · Prochat</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .err-page { flex: 1; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 24px; }
+    .err-inner { max-width: 480px; }
+    .err-code { font-size: 120px; font-weight: 800; color: var(--primary-light); line-height: 1; margin-bottom: 8px; }
+    .err-inner h1 { font-size: 28px; font-weight: 800; margin-bottom: 12px; }
+    .err-inner p { font-size: 16px; color: var(--text-muted); margin-bottom: 32px; line-height: 1.6; }
+    .err-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    [data-theme="dark"] .err-code { color: #312e81; }
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">prochat<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#features" data-i18n="nav_features">Возможности</a></li>
+      <li><a href="index.html#pricing" data-i18n="nav_pricing">Цены</a></li>
+      <li><a href="blog/index.html" data-i18n="nav_blog">Блог</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#" class="btn-primary" data-i18n="nav_start">Начать бесплатно</a>
+      <button class="dark-toggle" id="darkToggle">🌙</button>
+    </div>
+  </div>
+</nav>
+  <div class="err-page">
+    <div class="err-inner">
+      <div class="err-code">404</div>
+      <h1 data-i18n="err_title">Страница не найдена</h1>
+      <p data-i18n="err_sub">Такой страницы не существует. Возможно, ссылка устарела.</p>
+      <div class="err-btns">
+        <a href="index.html" class="btn-primary" data-i18n="err_home">На главную</a>
+        <a href="blog/index.html" class="btn-outline" data-i18n="err_blog">Читать блог</a>
+      </div>
+    </div>
+  </div>
+<script src="i18n-pages.js"></script>
+</body>
+</html>

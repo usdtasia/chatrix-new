@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Справочный центр · Prochat</title>
+  <meta name="description" content="Документация и справка по Prochat — установка виджета, настройка AI, интеграции, тарифы и оплата." />
+  <link rel="canonical" href="https://prochat.uz/help/" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .help-hero { background: linear-gradient(135deg, #6366f1, #8b5cf6); padding: 72px 0 60px; text-align: center; color: #fff; }
+    .help-hero h1 { font-size: clamp(28px,4vw,44px); font-weight: 800; margin-bottom: 12px; }
+    .help-hero p { font-size: 18px; opacity: .85; margin-bottom: 32px; }
+    .help-search { display: flex; max-width: 520px; margin: 0 auto; background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,.2); }
+    .help-search input { flex: 1; border: none; outline: none; padding: 16px 20px; font-size: 15px; font-family: inherit; color: #111827; }
+    .help-search button { background: var(--primary); color: #fff; border: none; padding: 0 24px; font-size: 15px; font-weight: 600; cursor: pointer; }
+    .help-search button:hover { background: #4f46e5; }
+
+    .help-body { display: grid; grid-template-columns: 260px 1fr; gap: 48px; padding: 64px 0 96px; align-items: start; }
+    .help-sidebar { position: sticky; top: 84px; }
+    .help-nav-section { margin-bottom: 24px; }
+    .help-nav-section > strong { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; color: var(--text-muted); display: block; margin-bottom: 8px; padding: 0 12px; }
+    .help-nav-section a { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 8px; font-size: 14px; color: var(--text); text-decoration: none; transition: background .15s, color .15s; }
+    .help-nav-section a:hover, .help-nav-section a.active { background: var(--primary-light); color: var(--primary); }
+    .help-nav-section a .nav-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); flex-shrink: 0; }
+    .help-nav-section a.active .nav-dot, .help-nav-section a:hover .nav-dot { background: var(--primary); }
+
+    .help-main {}
+    .help-popular { margin-bottom: 56px; }
+    .help-popular h2 { font-size: 22px; font-weight: 800; margin-bottom: 20px; }
+    .help-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .help-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; text-decoration: none; color: var(--text); transition: box-shadow .2s, transform .2s; }
+    .help-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+    .help-card-icon { font-size: 28px; margin-bottom: 12px; }
+    .help-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .help-card p { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin: 0; }
+
+    .help-section { margin-bottom: 48px; }
+    .help-section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+    .help-section-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--primary-light); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .help-section-header h2 { font-size: 20px; font-weight: 800; margin: 0; }
+    .help-articles { display: flex; flex-direction: column; gap: 2px; }
+    .help-article { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-radius: 10px; text-decoration: none; color: var(--text); transition: background .15s; }
+    .help-article:hover { background: var(--bg2); }
+    .help-article-left { display: flex; align-items: center; gap: 10px; }
+    .help-article-left span { font-size: 16px; }
+    .help-article strong { font-size: 14px; font-weight: 500; }
+    .help-article-meta { font-size: 12px; color: var(--text-muted); display: flex; gap: 10px; align-items: center; flex-shrink: 0; }
+    .help-tag { background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 2px 8px; font-size: 11px; font-weight: 600; }
+    .help-tag.new { background: #dcfce7; border-color: #bbf7d0; color: #15803d; }
+    .help-tag.popular { background: #fef9c3; border-color: #fde68a; color: #92400e; }
+    [data-theme="dark"] .help-tag.new { background: #052e16; border-color: #166534; color: #86efac; }
+    [data-theme="dark"] .help-tag.popular { background: #1c1917; border-color: #78350f; color: #fbbf24; }
+
+    .help-contact-banner { background: linear-gradient(135deg, var(--primary), #8b5cf6); border-radius: var(--radius-lg); padding: 40px; text-align: center; color: #fff; margin-top: 48px; }
+    .help-contact-banner h3 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+    .help-contact-banner p { opacity: .85; margin-bottom: 24px; }
+    .help-contact-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .help-contact-btns a { background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.3); color: #fff; padding: 12px 24px; border-radius: 10px; font-weight: 600; text-decoration: none; transition: background .2s; }
+    .help-contact-btns a:hover { background: rgba(255,255,255,.35); }
+    .help-contact-btns a.solid { background: #fff; color: var(--primary); }
+    .help-contact-btns a.solid:hover { background: #f0f4ff; }
+
+    [data-theme="dark"] .help-hero { background: linear-gradient(135deg, #312e81, #4c1d95); }
+    [data-theme="dark"] .help-search input { background: #1f2937; color: #f9fafb; }
+    [data-theme="dark"] .help-card { background: #1f2937; border-color: #374151; }
+    [data-theme="dark"] .help-article:hover { background: #1f2937; }
+
+    @media (max-width: 900px) { .help-body { grid-template-columns: 1fr; } .help-sidebar { display: none; } .help-cards { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .help-cards { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="../index.html" class="logo">prochat<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html#features">Возможности</a></li>
+      <li><a href="../index.html#pricing">Цены</a></li>
+      <li><a href="../blog/index.html">Блог</a></li>
+      <li><a href="index.html" style="color: var(--primary);">Справка</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="../index.html#pricing" class="btn-primary">Начать бесплатно</a>
+      <button class="dark-toggle" id="darkToggle">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<section class="help-hero">
+  <div class="container">
+    <h1>Справочный центр</h1>
+    <p>Найдите ответ на любой вопрос о Prochat</p>
+    <div class="help-search">
+      <input type="text" placeholder="Найти статью... (например: установка виджета)" id="helpSearch" />
+      <button onclick="doSearch()">Найти</button>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="help-body">
+
+    <!-- SIDEBAR -->
+    <aside class="help-sidebar">
+      <div class="help-nav-section">
+        <strong>Начало работы</strong>
+        <a href="getting-started.html" class="active"><span class="nav-dot"></span>Быстрый старт</a>
+        <a href="install-widget.html"><span class="nav-dot"></span>Установка виджета</a>
+        <a href="account-setup.html"><span class="nav-dot"></span>Настройка аккаунта</a>
+        <a href="invite-operators.html"><span class="nav-dot"></span>Приглашение операторов</a>
+      </div>
+      <div class="help-nav-section">
+        <strong>Работа с чатом</strong>
+        <a href="dialogs.html"><span class="nav-dot"></span>Диалоги и переписка</a>
+        <a href="operator-status.html"><span class="nav-dot"></span>Статусы операторов</a>
+        <a href="canned-responses.html"><span class="nav-dot"></span>Быстрые ответы</a>
+        <a href="departments.html"><span class="nav-dot"></span>Отделы и маршрутизация</a>
+        <a href="shortcuts.html"><span class="nav-dot"></span>Горячие клавиши</a>
+      </div>
+      <div class="help-nav-section">
+        <strong>AI-автопилот</strong>
+        <a href="ai-setup.html"><span class="nav-dot"></span>Настройка AI</a>
+        <a href="knowledge-base.html"><span class="nav-dot"></span>База знаний</a>
+        <a href="auto-replies.html"><span class="nav-dot"></span>Автоответы и триггеры</a>
+        <a href="ai-offline.html"><span class="nav-dot"></span>AI в нерабочее время</a>
+      </div>
+      <div class="help-nav-section">
+        <strong>Интеграции</strong>
+        <a href="telegram.html"><span class="nav-dot"></span>Telegram</a>
+        <a href="webhooks.html"><span class="nav-dot"></span>Webhooks и API</a>
+        <a href="wordpress.html"><span class="nav-dot"></span>WordPress</a>
+        <a href="tilda.html"><span class="nav-dot"></span>Tilda</a>
+        <a href="custom-install.html"><span class="nav-dot"></span>Произвольный сайт</a>
+      </div>
+      <div class="help-nav-section">
+        <strong>Тарифы и оплата</strong>
+        <a href="plans.html"><span class="nav-dot"></span>Тарифные планы</a>
+        <a href="payment-methods.html"><span class="nav-dot"></span>Способы оплаты</a>
+        <a href="refund.html"><span class="nav-dot"></span>Возврат средств</a>
+      </div>
+      <div class="help-nav-section">
+        <strong>Аналитика</strong>
+        <a href="analytics.html"><span class="nav-dot"></span>Обзор аналитики</a>
+        <a href="reports.html"><span class="nav-dot"></span>Отчёты</a>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="help-main">
+
+      <!-- Popular topics -->
+      <div class="help-popular">
+        <h2>Популярные темы</h2>
+        <div class="help-cards">
+          <a href="getting-started.html" class="help-card">
+            <div class="help-card-icon">🚀</div>
+            <h3>Быстрый старт</h3>
+            <p>Запустите чат на сайте за 5 минут — пошаговая инструкция</p>
+          </a>
+          <a href="install-widget.html" class="help-card">
+            <div class="help-card-icon">⚙️</div>
+            <h3>Установка виджета</h3>
+            <p>Как добавить виджет Prochat на любой сайт или платформу</p>
+          </a>
+          <a href="ai-setup.html" class="help-card">
+            <div class="help-card-icon">🤖</div>
+            <h3>Настройка AI</h3>
+            <p>Подключение и обучение AI-автопилота для вашего бизнеса</p>
+          </a>
+          <a href="telegram.html" class="help-card">
+            <div class="help-card-icon">✈️</div>
+            <h3>Интеграция Telegram</h3>
+            <p>Подключите Telegram-бот — все чаты в одном окне</p>
+          </a>
+          <a href="payment-methods.html" class="help-card">
+            <div class="help-card-icon">💳</div>
+            <h3>Оплата тарифа</h3>
+            <p>Visa, Uzcard, Humo, Payme, Click и безналичный расчёт</p>
+          </a>
+          <a href="refund.html" class="help-card">
+            <div class="help-card-icon">🛡️</div>
+            <h3>Гарантия возврата</h3>
+            <p>Как получить возврат в рамках 30-дневной гарантии</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Getting Started -->
+      <div class="help-section" id="sec-start">
+        <div class="help-section-header">
+          <div class="help-section-icon">🚀</div>
+          <h2>Начало работы</h2>
+        </div>
+        <div class="help-articles">
+          <a href="getting-started.html" class="help-article">
+            <div class="help-article-left"><span>📋</span><strong>Быстрый старт: первые 5 минут с Prochat</strong></div>
+            <div class="help-article-meta"><span class="help-tag popular">Популярное</span><span>5 мин</span></div>
+          </a>
+          <a href="install-widget.html" class="help-article">
+            <div class="help-article-left"><span>🔧</span><strong>Установка виджета на сайт</strong></div>
+            <div class="help-article-meta"><span>3 мин</span></div>
+          </a>
+          <a href="account-setup.html" class="help-article">
+            <div class="help-article-left"><span>👤</span><strong>Настройка профиля компании и операторов</strong></div>
+            <div class="help-article-meta"><span>4 мин</span></div>
+          </a>
+          <a href="invite-operators.html" class="help-article">
+            <div class="help-article-left"><span>👥</span><strong>Приглашение операторов в команду</strong></div>
+            <div class="help-article-meta"><span>2 мин</span></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Chat -->
+      <div class="help-section" id="sec-chat">
+        <div class="help-section-header">
+          <div class="help-section-icon">💬</div>
+          <h2>Работа с чатом</h2>
+        </div>
+        <div class="help-articles">
+          <a href="dialogs.html" class="help-article">
+            <div class="help-article-left"><span>💬</span><strong>Как работать с диалогами: принять, назначить, закрыть</strong></div>
+            <div class="help-article-meta"><span>5 мин</span></div>
+          </a>
+          <a href="operator-status.html" class="help-article">
+            <div class="help-article-left"><span>🟢</span><strong>Статусы операторов: онлайн, офлайн, перерыв</strong></div>
+            <div class="help-article-meta"><span>3 мин</span></div>
+          </a>
+          <a href="canned-responses.html" class="help-article">
+            <div class="help-article-left"><span>⚡</span><strong>Быстрые ответы — шаблоны для частых вопросов</strong></div>
+            <div class="help-article-meta"><span class="help-tag new">Новое</span><span>3 мин</span></div>
+          </a>
+          <a href="departments.html" class="help-article">
+            <div class="help-article-left"><span>🏢</span><strong>Создание отделов и маршрутизация обращений</strong></div>
+            <div class="help-article-meta"><span>4 мин</span></div>
+          </a>
+          <a href="shortcuts.html" class="help-article">
+            <div class="help-article-left"><span>⌨️</span><strong>Горячие клавиши оператора</strong></div>
+            <div class="help-article-meta"><span>2 мин</span></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- AI -->
+      <div class="help-section" id="sec-ai">
+        <div class="help-section-header">
+          <div class="help-section-icon">🤖</div>
+          <h2>AI-автопилот</h2>
+        </div>
+        <div class="help-articles">
+          <a href="ai-setup.html" class="help-article">
+            <div class="help-article-left"><span>🤖</span><strong>Первоначальная настройка AI-автопилота</strong></div>
+            <div class="help-article-meta"><span class="help-tag popular">Популярное</span><span>7 мин</span></div>
+          </a>
+          <a href="knowledge-base.html" class="help-article">
+            <div class="help-article-left"><span>📚</span><strong>База знаний: добавление документов и FAQ</strong></div>
+            <div class="help-article-meta"><span>6 мин</span></div>
+          </a>
+          <a href="auto-replies.html" class="help-article">
+            <div class="help-article-left"><span>⚙️</span><strong>Автоответы: настройка триггеров и сценариев</strong></div>
+            <div class="help-article-meta"><span>5 мин</span></div>
+          </a>
+          <a href="ai-offline.html" class="help-article">
+            <div class="help-article-left"><span>🌙</span><strong>AI в нерабочее время: приём заявок ночью</strong></div>
+            <div class="help-article-meta"><span>4 мин</span></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Integrations -->
+      <div class="help-section" id="sec-integr">
+        <div class="help-section-header">
+          <div class="help-section-icon">🔗</div>
+          <h2>Интеграции</h2>
+        </div>
+        <div class="help-articles">
+          <a href="telegram.html" class="help-article">
+            <div class="help-article-left"><span>✈️</span><strong>Telegram: подключение бота к Prochat</strong></div>
+            <div class="help-article-meta"><span class="help-tag popular">Популярное</span><span>5 мин</span></div>
+          </a>
+          <a href="wordpress.html" class="help-article">
+            <div class="help-article-left"><span>🔵</span><strong>Установка на WordPress</strong></div>
+            <div class="help-article-meta"><span>3 мин</span></div>
+          </a>
+          <a href="tilda.html" class="help-article">
+            <div class="help-article-left"><span>⬛</span><strong>Установка на Tilda</strong></div>
+            <div class="help-article-meta"><span>3 мин</span></div>
+          </a>
+          <a href="custom-install.html" class="help-article">
+            <div class="help-article-left"><span>🌐</span><strong>Установка на произвольный сайт (HTML)</strong></div>
+            <div class="help-article-meta"><span>2 мин</span></div>
+          </a>
+          <a href="webhooks.html" class="help-article">
+            <div class="help-article-left"><span>🔌</span><strong>Webhooks и REST API — для разработчиков</strong></div>
+            <div class="help-article-meta"><span class="help-tag new">Новое</span><span>10 мин</span></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Billing -->
+      <div class="help-section" id="sec-billing">
+        <div class="help-section-header">
+          <div class="help-section-icon">💳</div>
+          <h2>Тарифы и оплата</h2>
+        </div>
+        <div class="help-articles">
+          <a href="plans.html" class="help-article">
+            <div class="help-article-left"><span>📊</span><strong>Сравнение тарифных планов</strong></div>
+            <div class="help-article-meta"><span>3 мин</span></div>
+          </a>
+          <a href="payment-methods.html" class="help-article">
+            <div class="help-article-left"><span>💳</span><strong>Способы оплаты: карта, Payme, Click, безнал</strong></div>
+            <div class="help-article-meta"><span>3 мин</span></div>
+          </a>
+          <a href="refund.html" class="help-article">
+            <div class="help-article-left"><span>🛡️</span><strong>Гарантия возврата 30 дней</strong></div>
+            <div class="help-article-meta"><span>2 мин</span></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Analytics -->
+      <div class="help-section" id="sec-analytics">
+        <div class="help-section-header">
+          <div class="help-section-icon">📈</div>
+          <h2>Аналитика и отчёты</h2>
+        </div>
+        <div class="help-articles">
+          <a href="analytics.html" class="help-article">
+            <div class="help-article-left"><span>📈</span><strong>Обзор аналитики: ключевые метрики</strong></div>
+            <div class="help-article-meta"><span>5 мин</span></div>
+          </a>
+          <a href="reports.html" class="help-article">
+            <div class="help-article-left"><span>📋</span><strong>Экспорт отчётов и данных диалогов</strong></div>
+            <div class="help-article-meta"><span>3 мин</span></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact banner -->
+      <div class="help-contact-banner">
+        <h3>Не нашли ответ?</h3>
+        <p>Наша команда поддержки ответит в течение нескольких часов</p>
+        <div class="help-contact-btns">
+          <a href="https://t.me/prochat_support" class="solid">✈️ Написать в Telegram</a>
+          <a href="mailto:support@prochat.uz">📧 support@prochat.uz</a>
+          <a href="../contact.html">Форма обратной связи</a>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-bottom">
+    <div class="container">
+      <span>© 2026 Prochat · YATT MOSKOVSEV A.A · ИНН 487064196</span>
+      <span><a href="../privacy.html">Конфиденциальность</a> · <a href="../terms.html">Условия</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../i18n-pages.js"></script>
+<script>
+document.getElementById('helpSearch').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') doSearch();
+});
+function doSearch() {
+  const q = document.getElementById('helpSearch').value.trim().toLowerCase();
+  if (!q) return;
+  const articles = document.querySelectorAll('.help-article, .help-card');
+  let found = null;
+  articles.forEach(a => {
+    if (!found && a.textContent.toLowerCase().includes(q)) found = a;
+  });
+  if (found) { found.scrollIntoView({ behavior: 'smooth', block: 'center' }); found.style.outline = '2px solid var(--primary)'; setTimeout(() => found.style.outline = '', 2000); }
+  else alert('По запросу "' + q + '" статей не найдено. Напишите нам в поддержку.');
+}
+</script>
+</body>
+</html>

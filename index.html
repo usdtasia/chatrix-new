@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="meta_title">Prochat — Онлайн-чат и AI для вашего сайта</title>
+  <meta name="description" content="Prochat — онлайн-чат с AI-автопилотом для сайта в Узбекистане. Поддержка узбекского языка, Telegram, оплата Uzcard/Humo. Бесплатный план, установка 5 минут." />
+  <meta name="keywords" content="онлайн чат для сайта Узбекистан, чат виджет, AI чат бот, онлайн консультант сайт, prochat Узбекистан, чат поддержка" />
+  <meta name="robots" content="index, follow" />
+  <meta name="geo.region" content="UZ" />
+  <meta name="geo.placename" content="Tashkent, Uzbekistan" />
+  <meta property="og:title" content="Prochat — Онлайн-чат и AI для сайта · Узбекистан" />
+  <meta property="og:description" content="Единственный чат с поддержкой узбекского языка. AI-автопилот, Telegram, Uzcard/Humo. Установка за 5 минут. Бесплатный план." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://prochat.uz/" />
+  <meta property="og:image" content="https://prochat.uz/og-image.png" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:locale:alternate" content="uz_UZ" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Prochat — Онлайн-чат и AI · Узбекистан" />
+  <meta name="twitter:description" content="Поддержка узбекского языка. AI-автопилот + живой чат. Telegram, Uzcard, Humo." />
+  <link rel="canonical" href="https://prochat.uz/" />
+  <link rel="alternate" hreflang="ru" href="https://prochat.uz/" />
+  <link rel="alternate" hreflang="uz" href="https://prochat.uz/" />
+  <link rel="alternate" hreflang="en" href="https://prochat.uz/" />
+  <link rel="alternate" hreflang="x-default" href="https://prochat.uz/" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://prochat.uz/#org",
+        "name": "Prochat",
+        "url": "https://prochat.uz",
+        "logo": {"@type": "ImageObject", "url": "https://prochat.uz/favicon.svg"},
+        "contactPoint": {"@type": "ContactPoint", "contactType": "customer support", "email": "support@prochat.uz", "availableLanguage": ["Russian", "Uzbek", "English"]},
+        "address": {"@type": "PostalAddress", "addressLocality": "Tashkent", "addressCountry": "UZ"},
+        "sameAs": ["https://t.me/prochat_support"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://prochat.uz/#site",
+        "url": "https://prochat.uz",
+        "name": "Prochat",
+        "description": "Онлайн-чат и AI-автопилот для сайта в Узбекистане",
+        "publisher": {"@id": "https://prochat.uz/#org"},
+        "potentialAction": {"@type": "SearchAction", "target": {"@type": "EntryPoint", "urlTemplate": "https://prochat.uz/help/index.html?q={search_term_string}"}, "query-input": "required name=search_term_string"}
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Prochat",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, iOS, Android",
+        "description": "Live chat and AI customer support platform for Uzbekistan and CIS businesses. Supports Uzbek, Russian, and English languages.",
+        "offers": [
+          {"@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "UZS"},
+          {"@type": "Offer", "name": "Essential", "price": "100000", "priceCurrency": "UZS"},
+          {"@type": "Offer", "name": "Pro", "price": "500000", "priceCurrency": "UZS"}
+        ],
+        "publisher": {"@id": "https://prochat.uz/#org"}
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo">prochat<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="#features" data-i18n="nav_features">Возможности</a></li>
+      <li><a href="#how" data-i18n="nav_how">Как работает</a></li>
+      <li><a href="#pricing" data-i18n="nav_pricing">Цены</a></li>
+      <li><a href="#integrations" data-i18n="nav_integrations">Интеграции</a></li>
+      <li><a href="help/index.html" data-i18n="nav_help">Справка</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="uz">UZ</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <div class="nav-cta">
+        <a href="#" class="btn-ghost" data-i18n="nav_login">Войти</a>
+        <a href="#" class="btn-primary" data-i18n="nav_start">Попробовать бесплатно</a>
+        <button class="dark-toggle" id="darkToggle" aria-label="Dark mode">🌙</button>
+      </div>
+    </div>
+    <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <div class="hero-badges-row">
+        <div class="hero-badge">🚀 <span data-i18n="hero_badge_ai">AI + Живой чат в одном</span></div>
+        <div class="hero-badge local">🇺🇿 <span data-i18n="hero_badge_local">Поддержка на русском и узбекском</span></div>
+      </div>
+      <h1 data-i18n="hero_title">Превращайте посетителей<br/>в <span class="gradient-text">клиентов</span> — прямо с сайта</h1>
+      <p class="hero-sub" data-i18n="hero_sub">Онлайн-чат, AI-автопилот и аналитика для бизнеса. Устанавливается за 5 минут. Без карты.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn-primary btn-lg" data-i18n="hero_cta_primary">Начать бесплатно →</a>
+        <a href="#demo" class="btn-ghost btn-lg" data-i18n="hero_cta_demo">Смотреть демо</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>2 800+</strong><span data-i18n="stat_companies">компаний</span></div>
+        <div class="stat-sep"></div>
+        <div class="stat"><strong>5 <span data-i18n="stat_min">мин</span></strong><span data-i18n="stat_setup">установка</span></div>
+        <div class="stat-sep"></div>
+        <div class="stat"><strong>24/7</strong><span data-i18n="stat_ai">AI-поддержка</span></div>
+        <div class="stat-sep"></div>
+        <div class="stat"><strong>30 <span data-i18n="stat_days">дней</span></strong><span data-i18n="stat_guarantee">гарантия</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="chat-window">
+        <div class="chat-header">
+          <div class="chat-avatar"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Agent" /></div>
+          <div class="chat-agent-info">
+            <strong data-i18n="chat_agent_name">Алина</strong>
+            <span class="online-dot"></span><em data-i18n="chat_online">онлайн</em>
+          </div>
+          <button class="chat-close">✕</button>
+        </div>
+        <div class="chat-body">
+          <div class="msg msg-agent">
+            <div class="msg-bubble" data-i18n="chat_msg1">Привет! Чем могу помочь? 👋</div>
+            <div class="msg-time">14:32</div>
+          </div>
+          <div class="msg msg-user">
+            <div class="msg-bubble" data-i18n="chat_msg2">Какие у вас тарифы?</div>
+            <div class="msg-time">14:33</div>
+          </div>
+          <div class="msg msg-agent">
+            <div class="msg-bubble" data-i18n="chat_msg3">Есть бесплатный план и Pro от 39€/мес. Показать подробнее?</div>
+            <div class="msg-time">14:33</div>
+          </div>
+          <div class="msg msg-typing">
+            <div class="typing-dots"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+        <div class="chat-input-row">
+          <input type="text" data-i18n-placeholder="chat_placeholder" placeholder="Напишите сообщение..." readonly />
+          <button class="send-btn">→</button>
+        </div>
+      </div>
+      <div class="notification-card">
+        <div class="notif-icon">💬</div>
+        <div class="notif-text"><strong data-i18n="notif_title">Новый посетитель</strong><br/><span data-i18n="notif_sub">Просматривает страницу цен</span></div>
+      </div>
+      <div class="floating-badge green">+18% <span data-i18n="float_conversion">конверсия</span></div>
+    </div>
+  </div>
+  <div class="hero-wave"><svg viewBox="0 0 1440 80" fill="none"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="white"/></svg></div>
+</section>
+
+<!-- LOGOS -->
+<section class="logos-section">
+  <div class="container">
+    <p class="logos-label" data-i18n="logos_label">Нам доверяют компании по всему Узбекистану</p>
+    <div class="logos-row">
+      <div class="logo-item">Uzum Market</div>
+      <div class="logo-item">Beeline UZ</div>
+      <div class="logo-item">Ucell</div>
+      <div class="logo-item">Click</div>
+      <div class="logo-item">Payme</div>
+      <div class="logo-item">Artel</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-header">
+      <h2 data-i18n="features_title">Всё что нужно — в одном инструменте</h2>
+      <p data-i18n="features_sub">Не нужно собирать из 10 сервисов. Prochat делает всё сам.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card featured">
+        <div class="feature-icon">🤖</div>
+        <h3 data-i18n="feat1_title">AI-автопилот</h3>
+        <p data-i18n="feat1_sub">Отвечает на типовые вопросы 24/7. Обучается на ваших данных. Передаёт оператору когда нужен человек.</p>
+        <div class="feature-tag" data-i18n="feat_popular">Популярно</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <h3 data-i18n="feat2_title">Живой чат</h3>
+        <p data-i18n="feat2_sub">Общайтесь с клиентами в реальном времени. Мобильное приложение для операторов.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3 data-i18n="feat3_title">Аналитика</h3>
+        <p data-i18n="feat3_sub">Кто на сайте, откуда пришёл, что смотрит. Триггеры по действиям посетителей.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔀</div>
+        <h3 data-i18n="feat4_title">Маршрутизация</h3>
+        <p data-i18n="feat4_sub">Автоматически распределяет чаты между отделами. Очереди и приоритеты.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3 data-i18n="feat5_title">Все каналы</h3>
+        <p data-i18n="feat5_sub">Telegram, WhatsApp, Instagram, Email — в одном окне оператора.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3 data-i18n="feat6_title">Быстрые ответы</h3>
+        <p data-i18n="feat6_sub">База шаблонов. Подсказки от AI прямо в интерфейсе оператора.</p>
+      </div>
+      <div class="feature-card" style="grid-column: span 3; background: linear-gradient(135deg, #f0fdf4, #ecfdf5); border-color: #bbf7d0;">
+        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+          <div class="feature-icon" style="font-size:40px; flex-shrink:0;">🌐</div>
+          <div>
+            <h3 data-i18n="feat7_title">Авто-перевод в реальном времени</h3>
+            <p data-i18n="feat7_sub">Клиент пишет на английском — оператор видит по-русски. Оператор отвечает по-русски — клиент получает на английском. Поддержка 50+ языков без переключений.</p>
+          </div>
+          <div class="translate-demo-pill">
+            <span class="translate-pill-item">EN</span>
+            <span class="translate-pill-arrow">→</span>
+            <span class="translate-pill-item active">RU</span>
+            <span class="translate-pill-arrow">→</span>
+            <span class="translate-pill-item">EN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="usecases" id="usecases">
+  <div class="container">
+    <div class="section-header">
+      <h2 data-i18n="uc_title">Для кого подходит Prochat</h2>
+      <p data-i18n="uc_sub">Разные задачи — одно решение</p>
+    </div>
+    <div class="uc-tabs">
+      <button class="uc-tab active" data-tab="ecom" data-i18n="uc_tab_ecom">🛒 Интернет-магазин</button>
+      <button class="uc-tab" data-tab="support" data-i18n="uc_tab_support">🎧 Поддержка</button>
+      <button class="uc-tab" data-tab="sales" data-i18n="uc_tab_sales">📈 Продажи</button>
+    </div>
+    <div class="uc-panels">
+      <div class="uc-panel active" data-panel="ecom">
+        <div class="uc-content">
+          <div class="uc-text">
+            <h3 data-i18n="uc_ecom_title">Увеличьте продажи без найма операторов</h3>
+            <ul class="uc-list">
+              <li data-i18n="uc_ecom_1">✓ AI отвечает на вопросы о наличии, доставке, оплате</li>
+              <li data-i18n="uc_ecom_2">✓ Триггер-сообщения при брошенной корзине</li>
+              <li data-i18n="uc_ecom_3">✓ Интеграция с CRM и системой заказов</li>
+              <li data-i18n="uc_ecom_4">✓ Среднее увеличение конверсии +18%</li>
+            </ul>
+            <a href="#" class="btn-primary" data-i18n="uc_cta">Начать бесплатно →</a>
+          </div>
+          <div class="uc-metric-card">
+            <div class="uc-metric"><span class="uc-num">+18%</span><span data-i18n="uc_metric_conv">конверсия</span></div>
+            <div class="uc-metric"><span class="uc-num">−65%</span><span data-i18n="uc_metric_abandon">брошенных корзин</span></div>
+            <div class="uc-metric"><span class="uc-num">4 мин</span><span data-i18n="uc_metric_response">среднее время ответа</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="uc-panel" data-panel="support">
+        <div class="uc-content">
+          <div class="uc-text">
+            <h3 data-i18n="uc_support_title">Снизьте нагрузку на службу поддержки</h3>
+            <ul class="uc-list">
+              <li data-i18n="uc_support_1">✓ AI закрывает 70% типовых обращений</li>
+              <li data-i18n="uc_support_2">✓ База знаний обновляется автоматически</li>
+              <li data-i18n="uc_support_3">✓ Мультиканал: чат, Telegram, email в одном окне</li>
+              <li data-i18n="uc_support_4">✓ SLA-контроль и отчёты по операторам</li>
+            </ul>
+            <a href="#" class="btn-primary" data-i18n="uc_cta">Начать бесплатно →</a>
+          </div>
+          <div class="uc-metric-card">
+            <div class="uc-metric"><span class="uc-num">70%</span><span data-i18n="uc_metric_auto">автоматизация</span></div>
+            <div class="uc-metric"><span class="uc-num">−40%</span><span data-i18n="uc_metric_cost">стоимость поддержки</span></div>
+            <div class="uc-metric"><span class="uc-num">24/7</span><span data-i18n="uc_metric_avail">доступность</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="uc-panel" data-panel="sales">
+        <div class="uc-content">
+          <div class="uc-text">
+            <h3 data-i18n="uc_sales_title">Квалифицируйте лиды пока вы спите</h3>
+            <ul class="uc-list">
+              <li data-i18n="uc_sales_1">✓ Автоматический захват контактов</li>
+              <li data-i18n="uc_sales_2">✓ Квалификация лидов по вашим критериям</li>
+              <li data-i18n="uc_sales_3">✓ Push уведомления при горячем лиде</li>
+              <li data-i18n="uc_sales_4">✓ Передача в CRM одним кликом</li>
+            </ul>
+            <a href="#" class="btn-primary" data-i18n="uc_cta">Начать бесплатно →</a>
+          </div>
+          <div class="uc-metric-card">
+            <div class="uc-metric"><span class="uc-num">+25%</span><span data-i18n="uc_metric_leads">лидов в месяц</span></div>
+            <div class="uc-metric"><span class="uc-num">×2.3</span><span data-i18n="uc_metric_qual">квалификация</span></div>
+            <div class="uc-metric"><span class="uc-num">−30%</span><span data-i18n="uc_metric_cycle">цикл сделки</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI CALCULATOR -->
+<section class="roi-section" id="roi">
+  <div class="container">
+    <div class="section-header">
+      <h2 data-i18n="roi_title">Сколько вы теряете без чата?</h2>
+      <p data-i18n="roi_sub">Введите данные и узнайте упущенную выручку</p>
+    </div>
+    <div class="roi-card">
+      <div class="roi-inputs">
+        <div class="roi-field">
+          <label data-i18n="roi_visitors_label">Посетителей сайта в месяц</label>
+          <div class="roi-slider-row">
+            <input type="range" id="visitors" min="500" max="100000" step="500" value="10000" />
+            <span class="roi-val" id="visitors-val">10 000</span>
+          </div>
+        </div>
+        <div class="roi-field">
+          <label data-i18n="roi_order_label">Средний чек (USD)</label>
+          <div class="roi-slider-row">
+            <input type="range" id="order-val-input" min="10" max="2000" step="10" value="100" />
+            <span class="roi-val" id="order-display">100</span>
+          </div>
+        </div>
+        <div class="roi-field">
+          <label data-i18n="roi_conv_label">Текущая конверсия (%)</label>
+          <div class="roi-slider-row">
+            <input type="range" id="conv" min="0.5" max="10" step="0.5" value="2" />
+            <span class="roi-val" id="conv-val">2%</span>
+          </div>
+        </div>
+      </div>
+      <div class="roi-result">
+        <div class="roi-result-label" data-i18n="roi_result_label">Дополнительная выручка с Prochat</div>
+        <div class="roi-result-amount" id="roi-amount">$3 600</div>
+        <div class="roi-result-sub" data-i18n="roi_result_sub">в месяц при росте конверсии на +18%</div>
+        <a href="#" class="btn-primary" data-i18n="roi_cta">Начать зарабатывать больше →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="container">
+    <div class="section-header">
+      <h2 data-i18n="how_title">Запуск за 3 шага</h2>
+      <p data-i18n="how_sub">От регистрации до первого чата — 5 минут</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3 data-i18n="step1_title">Зарегистрируйтесь</h3>
+        <p data-i18n="step1_sub">Создайте аккаунт. Карту вводить не нужно.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3 data-i18n="step2_title">Установите виджет</h3>
+        <p data-i18n="step2_sub">Скопируйте 2 строки кода на свой сайт.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3 data-i18n="step3_title">Общайтесь</h3>
+        <p data-i18n="step3_sub">Принимайте чаты через браузер или мобильное приложение.</p>
+      </div>
+    </div>
+    <div class="code-block">
+      <div class="code-header">
+        <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+        <span class="code-filename">index.html</span>
+      </div>
+      <pre><code><span class="cm">&lt;!-- <span data-i18n="code_comment">Вставьте перед</span> &lt;/body&gt; --&gt;</span>
+<span class="ck">&lt;script&gt;</span>
+  <span class="cv">window</span>.ProchatSettings = { <span class="cs">widgetId</span>: <span class="cstr">"ваш-id"</span> };
+<span class="ck">&lt;/script&gt;</span>
+<span class="ck">&lt;script</span> <span class="cs">src</span>=<span class="cstr">"https://cdn.prochat.uz/widget.js"</span> <span class="cs">async</span><span class="ck">&gt;&lt;/script&gt;</span></code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section class="demo-section" id="demo">
+  <div class="container">
+    <div class="section-header light">
+      <h2 data-i18n="demo_title">Попробуйте прямо сейчас</h2>
+      <p data-i18n="demo_sub">Живое демо — напишите вопрос и посмотрите как это работает</p>
+    </div>
+
+    <!-- Tab switcher -->
+    <div class="demo-tabs">
+      <button class="demo-tab active" data-tab="split">🖥️ Полный вид</button>
+      <button class="demo-tab" data-tab="visitor">👤 Вид посетителя</button>
+      <button class="demo-tab" data-tab="operator">🎧 Вид оператора</button>
+    </div>
+
+    <div class="demo-split" id="demoSplit">
+
+      <!-- VISITOR SIDE -->
+      <div class="demo-visitor-side">
+        <div class="demo-side-label">👤 Посетитель вашего сайта</div>
+
+        <!-- Customization toolbar -->
+        <div class="demo-customize-bar">
+          <span class="demo-customize-label">✏️ Настройте виджет:</span>
+          <div class="demo-color-swatches">
+            <button class="demo-swatch active" data-color="#6366f1" style="background:#6366f1" title="Фиолетовый" onclick="setWidgetColor(this)"></button>
+            <button class="demo-swatch" data-color="#0ea5e9" style="background:#0ea5e9" title="Синий" onclick="setWidgetColor(this)"></button>
+            <button class="demo-swatch" data-color="#10b981" style="background:#10b981" title="Зелёный" onclick="setWidgetColor(this)"></button>
+            <button class="demo-swatch" data-color="#f59e0b" style="background:#f59e0b" title="Оранжевый" onclick="setWidgetColor(this)"></button>
+            <button class="demo-swatch" data-color="#ef4444" style="background:#ef4444" title="Красный" onclick="setWidgetColor(this)"></button>
+            <button class="demo-swatch" data-color="#111827" style="background:#111827" title="Тёмный" onclick="setWidgetColor(this)"></button>
+          </div>
+          <div class="demo-customize-pills">
+            <span class="demo-cpill">🖼️ Иконка</span>
+            <span class="demo-cpill">📍 Позиция</span>
+            <span class="demo-cpill">💬 Текст</span>
+          </div>
+        </div>
+
+        <div class="visitor-widget" id="visitorWidget">
+          <div class="vw-header" id="vwHeader">
+            <div class="vw-avatar" id="vwAvatar">P</div>
+            <div class="vw-info">
+              <strong id="vwName">Prochat</strong>
+              <span class="vw-online"><span class="online-dot"></span> Онлайн</span>
+            </div>
+            <button class="vw-close" onclick="this.closest('.visitor-widget').style.display='none'">×</button>
+          </div>
+          <div class="vw-messages" id="vwMessages">
+            <div class="vw-msg vw-msg-in">
+              <div class="vw-bubble">Привет! Чем могу помочь? 👋</div>
+              <div class="vw-time">сейчас</div>
+            </div>
+          </div>
+          <div class="vw-chips" id="vwChips">
+            <button class="vw-chip" onclick="sendChip(this)">Сколько стоит?</button>
+            <button class="vw-chip" onclick="sendChip(this)">Есть бесплатный план?</button>
+            <button class="vw-chip" onclick="sendChip(this)">Как установить?</button>
+            <button class="vw-chip" onclick="sendChip(this)">Есть Telegram?</button>
+          </div>
+          <div class="vw-input-row">
+            <input type="text" id="visitorInput" placeholder="Написать сообщение..." onkeydown="if(event.key==='Enter')sendVisitor()" />
+            <button onclick="sendVisitor()" class="vw-send" id="vwSendBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13" stroke="white" stroke-width="2.5" stroke-linecap="round"/><path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- OPERATOR SIDE -->
+      <div class="demo-operator-side">
+        <div class="demo-side-label">🎧 Панель оператора / AI</div>
+
+        <!-- Operator customization bar -->
+        <div class="demo-customize-bar">
+          <span class="demo-customize-label">✏️ Настройте панель:</span>
+          <div class="demo-customize-pills">
+            <button class="demo-cpill demo-cpill-btn" onclick="toggleOpTheme(this)">🌙 Тёмная тема</button>
+            <span class="demo-cpill">📐 Колонки</span>
+            <span class="demo-cpill">⌨️ Хоткеи</span>
+            <span class="demo-cpill">🔔 Уведомления</span>
+          </div>
+        </div>
+
+        <div class="demo-mockup-inner" id="demoMockupInner">
+          <div class="demo-sidebar">
+            <div class="demo-sidebar-header"><span>Чаты</span> <span class="badge" id="demoBadge">1</span></div>
+            <div class="demo-chat-item active" id="demoActiveChatItem">
+              <div class="demo-avatar">В</div>
+              <div class="demo-chat-info">
+                <strong>Вы (демо)</strong>
+                <span id="demoLastMsg">Написать вопрос →</span>
+              </div>
+              <div class="demo-time">сейчас</div>
+            </div>
+            <div class="demo-chat-item">
+              <div class="demo-avatar" style="background:#a78bfa">М</div>
+              <div class="demo-chat-info"><strong>Манучехр</strong><span>Спасибо, всё понял!</span></div>
+              <div class="demo-time">2 мин</div>
+            </div>
+            <div class="demo-chat-item">
+              <div class="demo-avatar" style="background:#34d399">З</div>
+              <div class="demo-chat-info"><strong>Зарина</strong><span>Как подключить Telegram?</span></div>
+              <div class="demo-time">5 мин</div>
+            </div>
+          </div>
+          <div class="demo-main">
+            <div class="demo-main-header">
+              <strong>Вы (демо)</strong>
+              <span class="online-dot"></span>
+              <span>На сайте · сейчас</span>
+              <div class="demo-translate-badge">🤖 AI-автопилот</div>
+            </div>
+            <div class="demo-messages" id="opMessages">
+              <div class="dm dm-user">
+                <div class="dm-original" id="firstOpMsg">Напишите вопрос в виджете слева →</div>
+              </div>
+            </div>
+            <div class="demo-input-row">
+              <input type="text" placeholder="Ответить клиенту..." id="opInput" onkeydown="if(event.key==='Enter')sendOperator()" />
+              <button class="demo-send" onclick="sendOperator()">Отправить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRATIONS -->
+<section class="integrations" id="integrations">
+  <div class="container">
+    <div class="section-header">
+      <h2 data-i18n="integr_title">Работает с вашими инструментами</h2>
+      <p data-i18n="integr_sub">Подключается к популярным платформам за пару кликов</p>
+    </div>
+    <div class="integr-grid">
+
+      <!-- Telegram -->
+      <div class="integr-item">
+        <div class="integr-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="12" fill="#26A5E4"/>
+            <path d="M5.14 11.9l3.89 1.45 1.5 4.82c.1.3.47.4.71.2l2.1-1.72a.5.5 0 01.6-.02l3.79 2.75c.27.2.65.05.72-.28l2.77-13.3c.08-.37-.28-.67-.63-.54L5.14 10.7c-.38.14-.38.68 0 .82z" fill="white"/>
+            <path d="M9.03 13.35l-.28 3.06c.16 0 .32-.07.44-.19l1.43-1.38 2.97 2.19" fill="#B0BEC5"/>
+          </svg>
+        </div>
+        <span>Telegram</span>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="integr-item">
+        <div class="integr-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="12" fill="#25D366"/>
+            <path d="M17.47 6.51A7.1 7.1 0 0012 4.27a7.12 7.12 0 00-6.17 10.68L4.27 19.7l4.87-1.28A7.12 7.12 0 0012 19.15a7.12 7.12 0 007.12-7.13 7.1 7.1 0 00-1.65-4.51zm-5.47 10.96a5.9 5.9 0 01-3.01-.82l-.21-.13-2.2.58.59-2.14-.14-.22a5.92 5.92 0 015.97-9.12 5.92 5.92 0 010 11.85zm3.25-4.43c-.18-.09-1.06-.52-1.22-.58-.17-.06-.29-.09-.41.09-.12.17-.46.58-.57.7-.1.12-.21.13-.39.04a4.88 4.88 0 01-1.43-.88 5.37 5.37 0 01-.99-1.23c-.1-.18-.01-.28.08-.37.08-.08.18-.21.27-.31.09-.1.12-.18.18-.3.06-.12.03-.22-.02-.31-.04-.09-.41-1-.56-1.37-.15-.36-.3-.31-.41-.32h-.35c-.12 0-.31.04-.47.22-.16.17-.62.6-.62 1.47s.63 1.7.72 1.82c.09.12 1.24 1.9 3.01 2.66.42.18.75.29 1.01.37.42.13.81.11 1.11.07.34-.05 1.06-.43 1.2-.85.15-.42.15-.78.11-.85-.04-.08-.16-.12-.34-.21z" fill="white"/>
+          </svg>
+        </div>
+        <span>WhatsApp</span>
+      </div>
+
+      <!-- Instagram -->
+      <div class="integr-item">
+        <div class="integr-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="ig" cx="30%" cy="107%" r="150%">
+                <stop offset="0%" stop-color="#fdf497"/>
+                <stop offset="5%" stop-color="#fdf497"/>
+                <stop offset="45%" stop-color="#fd5949"/>
+                <stop offset="60%" stop-color="#d6249f"/>
+                <stop offset="90%" stop-color="#285AEB"/>
+              </radialGradient>
+            </defs>
+            <rect width="24" height="24" rx="6" fill="url(#ig)"/>
+            <rect x="6.5" y="6.5" width="11" height="11" rx="3.5" stroke="white" stroke-width="1.5" fill="none"/>
+            <circle cx="12" cy="12" r="2.8" stroke="white" stroke-width="1.5" fill="none"/>
+            <circle cx="16.2" cy="7.8" r="0.8" fill="white"/>
+          </svg>
+        </div>
+        <span>Instagram</span>
+      </div>
+
+      <!-- Email -->
+      <div class="integr-item">
+        <div class="integr-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="6" fill="#EA4335"/>
+            <path d="M5 8.5l7 4.5 7-4.5M5 7h14a1 1 0 011 1v8a1 1 0 01-1 1H5a1 1 0 01-1-1V8a1 1 0 011-1z" stroke="white" stroke-width="1.3" fill="none" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span>Email</span>
+      </div>
+
+      <!-- Tilda -->
+      <div class="integr-item">
+        <div class="integr-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="6" fill="#000"/>
+            <text x="12" y="16.5" font-family="Georgia,serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">T̃</text>
+          </svg>
+        </div>
+        <span>Tilda</span>
+      </div>
+
+      <!-- WordPress -->
+      <div class="integr-item">
+        <div class="integr-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="12" fill="#21759B"/>
+            <path d="M4.27 12a7.73 7.73 0 0013.04 5.58L11.1 10.1A7.72 7.72 0 004.27 12zm14.07-2.1c.3.74.48 1.56.48 2.43 0 2.24-.91 3.93-1.68 5.18L19.68 12a7.67 7.67 0 00-.6-2.88h-.74zm-5.74.06a3.8 3.8 0 01.08-2.06c.43-.07.82-.11 1.32-.11a7.73 7.73 0 00-5.98-2.86c-.04 0-.08 0-.12.01.95.02 2.72.89 4.7 5.02zm-4.37 8.8l2.44-7.1 2.5 6.86a7.72 7.72 0 01-4.94.24zM12 3a9 9 0 100 18A9 9 0 0012 3z" fill="white"/>
+          </svg>
+        </div>
+        <span>WordPress</span>
+      </div>
+
+      <!-- Shopify -->
+      <div class="integr-item">
+        <div class="integr-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="6" fill="#96BF48"/>
+            <path d="M15.8 5.6s-.1-.1-.3-.1c-.1 0-1.9-.1-1.9-.1s-1.3-1.2-1.4-1.3c-.1-.1-.4-.1-.5 0l-.7 2.1s-1 .3-1 .3C9.2 6.8 9.1 6.9 9 7.1L7.5 18.3l8.8 1.7 3-1c0 0-3.3-12.8-3.3-13-.1-.2-.2-.4-.2-.4zm-3.5-.7l-.5 1.5c-.4.1-.8.3-1.3.4.3-1.3 1.1-1.8 1.8-1.9zm-.3-1c-1.3.1-2.6 1.3-3.1 3.3-.7.2-1.2.4-1.2.4L9.5 5c.1-.2.3-.2.5-.2.3.1.2.1.2.1s.5-1 1.2-1.2c.1.1.3.2.8.2z" fill="white"/>
+          </svg>
+        </div>
+        <span>Shopify</span>
+      </div>
+
+      <!-- Bitrix24 -->
+      <div class="integr-item">
+        <div class="integr-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="6" fill="#E3001B"/>
+            <text x="12" y="16" font-family="Arial" font-size="7.5" font-weight="900" fill="white" text-anchor="middle">B24</text>
+          </svg>
+        </div>
+        <span>Bitrix24</span>
+      </div>
+
+      <!-- amoCRM -->
+      <div class="integr-item">
+        <div class="integr-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="6" fill="#339DC8"/>
+            <text x="12" y="15.5" font-family="Arial" font-size="7" font-weight="900" fill="white" text-anchor="middle">amo</text>
+          </svg>
+        </div>
+        <span>AmoCRM</span>
+      </div>
+
+      <!-- Zapier -->
+      <div class="integr-item">
+        <div class="integr-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="6" fill="#FF4A00"/>
+            <path d="M12.02 9.17L9.25 14.7H12v1.38H7.5v-.82l2.77-5.5H7.6V8.4h4.42v.77zm2.32 7.26c-.9 0-1.38-.52-1.38-1.3V8.4h1.42v6.6c0 .23.1.32.3.32.1 0 .2 0 .3-.03l.18 1.07c-.22.05-.5.07-.82.07z" fill="white"/>
+          </svg>
+        </div>
+        <span>Zapier</span>
+      </div>
+
+      <!-- Webhooks / API -->
+      <div class="integr-item">
+        <div class="integr-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="6" fill="#6366f1"/>
+            <path d="M7 9l-2 3 2 3M17 9l2 3-2 3M13 6l-2 12" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <span>API / Webhooks</span>
+      </div>
+
+      <!-- More -->
+      <div class="integr-item integr-more">
+        <div class="integr-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="6" fill="#e0e7ff"/>
+            <text x="12" y="16" font-family="Arial" font-size="16" font-weight="900" fill="#6366f1" text-anchor="middle">+</text>
+          </svg>
+        </div>
+        <span data-i18n="integr_more">И ещё 50+</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY PROCHAT -->
+<section class="why-section" id="why">
+  <div class="container">
+    <div class="section-header">
+      <h2 data-i18n="why_title">Почему выбирают Prochat</h2>
+      <p data-i18n="why_sub">Сделан для бизнеса в Узбекистане и СНГ</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🇺🇿🇷🇺</div>
+        <h3 data-i18n="why1_title">Родной язык клиента</h3>
+        <p data-i18n="why1_text">Единственный чат с полноценной поддержкой узбекского языка. AI отвечает на UZ и RU — клиент пишет как ему удобно.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💬</div>
+        <h3 data-i18n="why2_title">Telegram + сайт в одном окне</h3>
+        <p data-i18n="why2_text">Все обращения — из чата на сайте и из Telegram — в едином интерфейсе оператора. Ничего не теряется.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤖</div>
+        <h3 data-i18n="why3_title">AI работает ночью и в выходные</h3>
+        <p data-i18n="why3_text">Автопилот отвечает на типовые вопросы 24/7. Утром оператор видит готовые лиды, не пропущенные обращения.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <h3 data-i18n="why4_title">Готово за 5 минут</h3>
+        <p data-i18n="why4_text">Одна строчка кода на сайте — и чат работает. Никаких интеграторов, разработчиков и долгих внедрений.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EARLY ADOPTERS -->
+<section class="early-section" id="early">
+  <div class="container">
+    <div class="early-card">
+      <div class="early-left">
+        <div class="early-tag" data-i18n="early_tag">🚀 Мы только запустились</div>
+        <h2 data-i18n="early_title">Станьте первыми — получите особые условия</h2>
+        <p data-i18n="early_sub">Prochat — новый продукт. Мы честно говорим об этом. Взамен предлагаем то, чего не дают зрелые сервисы: прямой доступ к команде, влияние на продукт и цены, которые зафиксируем навсегда.</p>
+        <ul class="early-list">
+          <li>
+            <div class="early-icon">🔒</div>
+            <div><strong data-i18n="early_b1">Цена зафиксирована навсегда</strong><br/><span data-i18n="early_b1s">Ранние клиенты платят €15/мес всегда — даже когда тариф вырастет</span></div>
+          </li>
+          <li>
+            <div class="early-icon">📞</div>
+            <div><strong data-i18n="early_b2">Прямой доступ к основателям</strong><br/><span data-i18n="early_b2s">Онбординг с командой, ответы в Telegram в течение часа</span></div>
+          </li>
+          <li>
+            <div class="early-icon">🗳️</div>
+            <div><strong data-i18n="early_b3">Влияете на продукт</strong><br/><span data-i18n="early_b3s">Ваши запросы идут в первую очередь. Голосование за фичи раз в месяц</span></div>
+          </li>
+          <li>
+            <div class="early-icon">🛡️</div>
+            <div><strong data-i18n="early_b4">30 дней — полный возврат</strong><br/><span data-i18n="early_b4s">Не понравится — вернём деньги без вопросов</span></div>
+          </li>
+        </ul>
+        <a href="#pricing" class="btn-primary btn-lg" data-i18n="early_cta">Стать ранним клиентом →</a>
+      </div>
+      <div class="early-right">
+        <div class="early-counter">
+          <div class="early-counter-num">47</div>
+          <div class="early-counter-label" data-i18n="early_spots">мест раннего доступа</div>
+          <div class="early-progress">
+            <div class="early-progress-bar" style="width: 26%"></div>
+          </div>
+          <div class="early-progress-label"><span data-i18n="early_taken">Занято:</span> <strong>12 / 47</strong></div>
+        </div>
+        <div class="early-perks">
+          <div class="early-perk">✓ <span data-i18n="ep1">Essential навсегда за €15</span></div>
+          <div class="early-perk">✓ <span data-i18n="ep2">Pro — 3 месяца бесплатно</span></div>
+          <div class="early-perk">✓ <span data-i18n="ep3">Персональный онбординг</span></div>
+          <div class="early-perk">✓ <span data-i18n="ep4">Бейдж «Ранний клиент»</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-header">
+      <h2 data-i18n="pricing_title">Прозрачные цены</h2>
+      <p data-i18n="pricing_sub">Без скрытых платежей. Начните бесплатно — без карты.</p>
+    </div>
+    <div class="pricing-grid">
+      <!-- FREE -->
+      <div class="plan">
+        <div class="plan-name">Free</div>
+        <div class="plan-price"><strong>0</strong><span data-i18n="plan_forever">/навсегда</span></div>
+        <ul class="plan-features">
+          <li>✓ 1 <span data-i18n="plan_operator">оператор</span></li>
+          <li>✓ 50 <span data-i18n="plan_dialogs">диалогов/мес</span></li>
+          <li>✓ 20 <span data-i18n="plan_ai_hints">AI-подсказок/мес</span></li>
+          <li>✓ <span data-i18n="plan_widget">Чат-виджет</span></li>
+          <li class="dim">✗ <span data-i18n="plan_kb">База знаний</span></li>
+          <li class="dim">✗ <span data-i18n="plan_autopilot">AI автопилот</span></li>
+        </ul>
+        <a href="#" class="btn-outline" data-i18n="plan_start">Начать</a>
+      </div>
+      <!-- ESSENTIAL -->
+      <div class="plan plan-popular">
+        <div class="plan-badge" data-i18n="plan_popular_badge">Популярный</div>
+        <div class="plan-name">Essential</div>
+        <div class="plan-price"><strong>100 000 сум</strong><span data-i18n="plan_per_op">/оператор/мес</span></div>
+        <ul class="plan-features">
+          <li>✓ <span data-i18n="plan_unlimited_ops">Безлимит операторов</span></li>
+          <li>✓ <span data-i18n="plan_unlimited_dialogs">Безлимит диалогов</span></li>
+          <li>✓ 500 <span data-i18n="plan_ai_hints">AI-подсказок/мес</span></li>
+          <li>✓ White label</li>
+          <li>✓ Webhooks + <span data-i18n="plan_integrations">интеграции</span></li>
+          <li class="dim">✗ <span data-i18n="plan_kb">База знаний (RAG)</span></li>
+        </ul>
+        <a href="#" class="btn-primary" data-i18n="plan_trial">Попробовать 10 дней</a>
+        <div class="plan-guarantee">🛡 <span data-i18n="plan_guarantee_text">30 дней — возврат денег</span></div>
+      </div>
+      <!-- PRO -->
+      <div class="plan">
+        <div class="plan-name">Pro</div>
+        <div class="plan-price"><strong>500 000 сум</strong><span>/мес</span></div>
+        <ul class="plan-features">
+          <li>✓ <span data-i18n="plan_all_essential">Всё из Essential</span></li>
+          <li>✓ <span data-i18n="plan_kb_rag">База знаний (RAG + pgvector)</span></li>
+          <li>✓ <span data-i18n="plan_autopilot">AI автопилот</span></li>
+          <li>✓ <span data-i18n="plan_unlimited_ai">Безлимит AI-подсказок</span></li>
+          <li>✓ Priority support</li>
+          <li>✓ <span data-i18n="plan_custom_brand">Кастомный брендинг</span></li>
+        </ul>
+        <a href="#" class="btn-outline" data-i18n="plan_choose_pro">Выбрать Pro</a>
+        <div class="plan-guarantee">🛡 <span data-i18n="plan_guarantee_text">30 дней — возврат денег</span></div>
+      </div>
+    </div>
+    <div class="pricing-note">
+      <span data-i18n="pricing_note">Не уверены? Напишите нам — подберём тариф под ваш бизнес.</span>
+      <a href="#" data-i18n="pricing_contact">Связаться →</a>
+    </div>
+
+    <div class="payment-row">
+      <div class="payment-label" data-i18n="payment_label">Способы оплаты:</div>
+      <div class="payment-methods">
+        <span class="pay-badge pay-logo">
+          <svg height="16" viewBox="0 0 780 500" xmlns="http://www.w3.org/2000/svg"><rect width="780" height="500" rx="40" fill="#1A1F71"/><circle cx="303" cy="250" r="150" fill="#EB001B"/><circle cx="477" cy="250" r="150" fill="#F79E1B"/><path d="M390 145.6A150 150 0 0 1 477.1 250 150 150 0 0 1 390 354.4 150 150 0 0 1 302.9 250 150 150 0 0 1 390 145.6z" fill="#FF5F00"/></svg>
+          <span>Visa / Mastercard</span>
+        </span>
+        <span class="pay-badge pay-logo pay-local">
+          <!-- Uzcard official color #0047BB -->
+          <svg height="20" viewBox="0 0 110 36" xmlns="http://www.w3.org/2000/svg">
+            <rect width="110" height="36" rx="6" fill="#0047BB"/>
+            <rect x="6" y="11" width="14" height="10" rx="2" fill="#FFD700" opacity=".9"/>
+            <rect x="6" y="11" width="14" height="4" rx="1" fill="#FFA500" opacity=".7"/>
+            <text x="27" y="24" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="900" fill="white" letter-spacing=".5">UZCARD</text>
+          </svg>
+        </span>
+        <span class="pay-badge pay-logo pay-local">
+          <!-- Humo brand green #00A651 -->
+          <svg height="20" viewBox="0 0 84 36" xmlns="http://www.w3.org/2000/svg">
+            <rect width="84" height="36" rx="6" fill="#00A651"/>
+            <circle cx="14" cy="18" r="8" fill="white" opacity=".25"/>
+            <circle cx="20" cy="18" r="8" fill="white" opacity=".25"/>
+            <text x="32" y="24" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="900" fill="white" letter-spacing=".5">HUMO</text>
+          </svg>
+        </span>
+        <span class="pay-badge pay-wire" data-i18n="payment_wire">🏦 Безналичный расчёт</span>
+      </div>
+    </div>
+
+    <div class="onprem-banner">
+      <div class="onprem-left">
+        <div class="onprem-icon">🔒</div>
+        <div>
+          <strong data-i18n="onprem_title">Нужно развернуть на своих серверах?</strong>
+          <p data-i18n="onprem_text">Мы предоставляем On-Premise вариант для компаний, которые не хотят передавать данные клиентов третьим лицам. Полный контроль над данными на вашей инфраструктуре.</p>
+        </div>
+      </div>
+      <a href="mailto:sales@prochat.uz" class="btn-outline onprem-btn" data-i18n="onprem_cta">Обсудить условия →</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS / SOCIAL PROOF -->
+<section class="stats-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 data-i18n="stats_title">Почему бизнес выбирает онлайн-чат</h2>
+      <p data-i18n="stats_sub">Данные отраслевых исследований Forrester, Econsultancy, Gartner</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-big">79%</div>
+        <p data-i18n="stat1_text">покупателей предпочитают чат — потому что получают ответ немедленно, без ожидания на линии</p>
+        <div class="stat-source">Econsultancy</div>
+      </div>
+      <div class="stat-card stat-card-accent">
+        <div class="stat-big">+18%</div>
+        <p data-i18n="stat2_text">средний рост конверсии у интернет-магазинов после внедрения живого чата на сайте</p>
+        <div class="stat-source">Forrester Research</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-big">53%</div>
+        <p data-i18n="stat3_text">клиентов уходят без покупки, если не получают быстрый ответ на вопрос во время выбора</p>
+        <div class="stat-source">Forrester Research</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-big">×3.4</div>
+        <p data-i18n="stat4_text">выше вероятность покупки у посетителей, которые вступили в диалог с оператором или ботом</p>
+        <div class="stat-source">Kissmetrics</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-big">68%</div>
+        <p data-i18n="stat5_text">типовых обращений в поддержку решаются автоматически с помощью AI без участия оператора</p>
+        <div class="stat-source">Gartner, 2024</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-big">−40%</div>
+        <p data-i18n="stat6_text">снижение стоимости обработки одного обращения при переходе на гибридную модель AI + оператор</p>
+        <div class="stat-source">McKinsey</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="section-header"><h2>FAQ</h2></div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary data-i18n="faq1_q">Нужно ли вводить карту при регистрации?</summary>
+        <p data-i18n="faq1_a">Нет. Бесплатный план работает без карты. Карта нужна только при переходе на платный тариф.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n="faq2_q">Как работает AI-автопилот?</summary>
+        <p data-i18n="faq2_a">AI обучается на ваших данных: FAQ, документации, прошлых диалогах. Отвечает автоматически, при сложных вопросах передаёт живому оператору.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n="faq3_q">Что такое гарантия возврата 30 дней?</summary>
+        <p data-i18n="faq3_a">Если за 30 дней конверсия не вырастет — вернём оплату без вопросов. Просто напишите в поддержку.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n="faq4_q">Можно ли настроить виджет под свой стиль?</summary>
+        <p data-i18n="faq4_a">Да — цвет, форма, позиция, аватар оператора, текст приветствия. В плане Pro — полное удаление брендинга Prochat.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n="faq5_q">Есть ли поддержка на узбекском языке?</summary>
+        <p data-i18n="faq5_a">Да. Команда поддержки работает на русском и узбекском языках. Виджет также поддерживает мультиязычность.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="container cta-inner">
+    <h2 data-i18n="cta_title">Готовы начать?</h2>
+    <p data-i18n="cta_sub">Бесплатно. Без карты. Первый чат — через 5 минут.</p>
+    <a href="#" class="btn-primary btn-lg" data-i18n="cta_btn">Создать аккаунт →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="logo">prochat<span class="dot">.</span></a>
+      <p data-i18n="footer_tagline">Онлайн-чат и AI для бизнеса</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <strong data-i18n="footer_product">Продукт</strong>
+        <a href="#features" data-i18n="nav_features">Возможности</a>
+        <a href="#pricing" data-i18n="nav_pricing">Цены</a>
+        <a href="help/index.html" data-i18n="footer_docs">Документация</a>
+        <a href="partner.html" data-i18n="footer_partners">Партнёрам</a>
+      </div>
+      <div class="footer-col">
+        <strong data-i18n="footer_company">Компания</strong>
+        <a href="blog/index.html" data-i18n="nav_blog">Блог</a>
+        <a href="contact.html" data-i18n="footer_contacts">Контакты</a>
+        <a href="privacy.html" data-i18n="footer_privacy">Конфиденциальность</a>
+        <a href="terms.html" data-i18n="footer_terms">Условия</a>
+      </div>
+      <div class="footer-col">
+        <strong data-i18n="footer_integrations">Интеграции</strong>
+        <a href="help/telegram.html">Telegram</a>
+        <a href="help/wordpress.html">WordPress</a>
+        <a href="help/tilda.html">Tilda</a>
+        <a href="help/webhooks.html" data-i18n="footer_api">API / Webhooks</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <span>© 2026 Prochat. <span data-i18n="footer_city">Ташкент, Узбекистан</span></span>
+      <span><a href="privacy.html" data-i18n="footer_privacy">Политика конфиденциальности</a> · <a href="terms.html" data-i18n="footer_terms">Условия</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <span data-i18n="sticky_text">Начните бесплатно прямо сейчас</span>
+  <a href="#" class="btn-primary" data-i18n="sticky_btn">Создать аккаунт →</a>
+  <button class="sticky-close" id="stickyClose">✕</button>
+</div>
+
+<!-- POPUP -->
+<div class="popup-overlay" id="popup">
+  <div class="popup-card">
+    <button class="popup-close" id="popupClose">✕</button>
+    <div class="popup-emoji">🎁</div>
+    <h3 data-i18n="popup_title">Специальное предложение</h3>
+    <p data-i18n="popup_sub">Зарегистрируйтесь сегодня и получите <strong>14 дней Pro</strong> бесплатно</p>
+    <a href="#" class="btn-primary btn-lg" data-i18n="popup_cta">Забрать оффер →</a>
+    <div class="popup-note" data-i18n="popup_note">Без карты · Отмена в любой момент</div>
+  </div>
+</div>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-text">
+    <span data-i18n="cookie_text">Мы используем cookies для улучшения сайта.</span>
+    <a href="privacy.html" data-i18n="cookie_link">Подробнее →</a>
+  </div>
+  <div class="cookie-btns">
+    <button class="btn-outline cookie-decline" id="cookieDecline" data-i18n="cookie_decline">Отклонить</button>
+    <button class="btn-primary" id="cookieAccept" data-i18n="cookie_accept">Принять</button>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

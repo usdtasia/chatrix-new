@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Свяжитесь с нами · Prochat</title>
+  <meta name="description" content="Напишите команде Prochat — ответим быстро. Telegram, email или форма обратной связи." />
+  <link rel="canonical" href="https://prochat.uz/contact.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .contact-hero { background: linear-gradient(135deg, #f0f4ff, #faf5ff); padding: 80px 0 64px; text-align: center; }
+    .contact-hero h1 { font-size: clamp(28px,4vw,44px); font-weight: 800; margin-bottom: 12px; letter-spacing: -1px; }
+    .contact-hero p { font-size: 18px; color: var(--text-muted); }
+    .contact-body { padding: 64px 0 96px; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 420px; gap: 48px; align-items: start; }
+
+    /* Channels */
+    .contact-channels { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+    .contact-channel { display: flex; align-items: center; gap: 16px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px 24px; text-decoration: none; color: var(--text); transition: .2s; }
+    .contact-channel:hover { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-light); transform: translateY(-1px); }
+    .contact-channel-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+    .contact-channel-icon.tg { background: #e7f3ff; }
+    .contact-channel-icon.mail { background: #fef3c7; }
+    .contact-channel-icon.sales { background: #f0fdf4; }
+    .contact-channel-info strong { font-size: 15px; font-weight: 700; display: block; margin-bottom: 2px; }
+    .contact-channel-info span { font-size: 13px; color: var(--text-muted); }
+    .contact-channel-arrow { margin-left: auto; color: var(--text-muted); font-size: 18px; }
+
+    /* Form */
+    .contact-form-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow); }
+    .contact-form-card h2 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+    .contact-form-card .sub { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-field { margin-bottom: 18px; }
+    .form-field label { font-size: 13px; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 6px; }
+    .form-field input, .form-field textarea, .form-field select {
+      width: 100%; padding: 12px 14px; border: 1.5px solid var(--border);
+      border-radius: 10px; font-size: 14px; font-family: inherit;
+      background: var(--bg2); color: var(--text);
+      outline: none; transition: border-color .2s, box-shadow .2s;
+    }
+    .form-field input:focus, .form-field textarea:focus, .form-field select:focus {
+      border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-light);
+    }
+    .form-field textarea { resize: vertical; min-height: 110px; }
+    .form-submit { width: 100%; padding: 14px; background: var(--primary); color: #fff; border: none; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; transition: .2s; font-family: inherit; }
+    .form-submit:hover { background: #4f46e5; }
+    .form-note { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 12px; }
+    .form-success { display: none; text-align: center; padding: 32px 0; }
+    .form-success .check { font-size: 48px; margin-bottom: 12px; }
+    .form-success h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
+    .form-success p { font-size: 14px; color: var(--text-muted); }
+
+    /* Info */
+    .contact-info { margin-top: 40px; padding: 28px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+    .contact-info h3 { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
+    .contact-info-row { display: flex; gap: 12px; margin-bottom: 12px; font-size: 14px; align-items: flex-start; }
+    .contact-info-row:last-child { margin-bottom: 0; }
+    .contact-info-row span:first-child { flex-shrink: 0; }
+    .contact-info-row a { color: var(--primary); text-decoration: none; }
+
+    /* Response time badges */
+    .resp-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+    .resp-badge { display: flex; align-items: center; gap: 6px; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 8px 14px; font-size: 13px; }
+    .resp-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .resp-dot.green { background: #22c55e; }
+    .resp-dot.yellow { background: #eab308; }
+
+    [data-theme="dark"] .contact-hero { background: linear-gradient(135deg, #1e1b4b, #1f2937); }
+    [data-theme="dark"] .contact-form-card { background: #1f2937; border-color: #374151; }
+    [data-theme="dark"] .contact-info { background: #1f2937; border-color: #374151; }
+    [data-theme="dark"] .form-field input, [data-theme="dark"] .form-field textarea, [data-theme="dark"] .form-field select { background: #111827; border-color: #374151; }
+    [data-theme="dark"] .contact-channel { background: #1f2937; border-color: #374151; }
+
+    @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } .contact-form-card { padding: 24px; } }
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">prochat<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#features">Возможности</a></li>
+      <li><a href="index.html#pricing">Цены</a></li>
+      <li><a href="blog/index.html">Блог</a></li>
+      <li><a href="help/index.html">Справка</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="index.html#pricing" class="btn-primary">Начать бесплатно</a>
+      <button class="dark-toggle" id="darkToggle">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<section class="contact-hero">
+  <div class="container">
+    <h1>Свяжитесь с нами</h1>
+    <p>Ответим быстро — выберите удобный способ</p>
+  </div>
+</section>
+
+<section class="contact-body">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- LEFT -->
+      <div>
+        <div class="resp-badges">
+          <div class="resp-badge"><div class="resp-dot green"></div>Telegram — обычно до 1 часа</div>
+          <div class="resp-badge"><div class="resp-dot yellow"></div>Email — до 1 рабочего дня</div>
+        </div>
+
+        <div class="contact-channels">
+          <a href="https://t.me/prochat_support" class="contact-channel" target="_blank">
+            <div class="contact-channel-icon tg">✈️</div>
+            <div class="contact-channel-info">
+              <strong>Telegram — поддержка</strong>
+              <span>@prochat_support · Быстрее всего</span>
+            </div>
+            <div class="contact-channel-arrow">→</div>
+          </a>
+          <a href="mailto:support@prochat.uz" class="contact-channel">
+            <div class="contact-channel-icon mail">📧</div>
+            <div class="contact-channel-info">
+              <strong>support@prochat.uz</strong>
+              <span>Технические вопросы и баги</span>
+            </div>
+            <div class="contact-channel-arrow">→</div>
+          </a>
+          <a href="mailto:sales@prochat.uz" class="contact-channel">
+            <div class="contact-channel-icon sales">💼</div>
+            <div class="contact-channel-info">
+              <strong>sales@prochat.uz</strong>
+              <span>Партнёрство, On-Premise, Enterprise</span>
+            </div>
+            <div class="contact-channel-arrow">→</div>
+          </a>
+        </div>
+
+        <div class="contact-info">
+          <h3>Реквизиты компании</h3>
+          <div class="contact-info-row">
+            <span>🏢</span>
+            <span>YATT MOSKOVSEV A.A &nbsp;·&nbsp; ИНН 487064196</span>
+          </div>
+          <div class="contact-info-row">
+            <span>📍</span>
+            <span>Республика Узбекистан, г. Ташкент</span>
+          </div>
+          <div class="contact-info-row">
+            <span>🌐</span>
+            <a href="https://prochat.uz">prochat.uz</a>
+          </div>
+          <div class="contact-info-row">
+            <span>⏰</span>
+            <span>Пн–Пт, 09:00–18:00 (UTC+5). AI отвечает 24/7.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: FORM -->
+      <div class="contact-form-card">
+        <h2>Написать нам</h2>
+        <p class="sub">Заполните форму — мы ответим в течение рабочего дня</p>
+
+        <form id="contactForm" onsubmit="submitForm(event)">
+          <div class="form-row">
+            <div class="form-field">
+              <label>Имя *</label>
+              <input type="text" placeholder="Алексей" required />
+            </div>
+            <div class="form-field">
+              <label>Email *</label>
+              <input type="email" placeholder="you@company.uz" required />
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Тема обращения</label>
+            <select>
+              <option>Технический вопрос</option>
+              <option>Вопрос по тарифам и оплате</option>
+              <option>Партнёрство / агентство</option>
+              <option>On-Premise / корпоративный запрос</option>
+              <option>Сообщить об ошибке</option>
+              <option>Другое</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Сообщение *</label>
+            <textarea placeholder="Опишите ваш вопрос или задачу..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Отправить сообщение →</button>
+          <p class="form-note">Нажимая «Отправить», вы соглашаетесь с <a href="privacy.html" style="color:var(--primary)">политикой конфиденциальности</a></p>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <div class="check">✅</div>
+          <h3>Сообщение отправлено!</h3>
+          <p>Мы ответим на ваш email в течение рабочего дня.<br>Если срочно — напишите в <a href="https://t.me/prochat_support" style="color:var(--primary)">Telegram</a>.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-bottom">
+    <div class="container">
+      <span>© 2026 Prochat · YATT MOSKOVSEV A.A · ИНН 487064196 · Ташкент, Узбекистан</span>
+      <span><a href="privacy.html">Конфиденциальность</a> · <a href="terms.html">Условия</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="i18n-pages.js"></script>
+<script>
+function submitForm(e) {
+  e.preventDefault();
+  // TODO: Валера подключит реальный endpoint
+  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+</script>
+</body>
+</html>

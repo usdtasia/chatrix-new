@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+Disallow: /gen_blog.py
+
+Sitemap: https://prochat.uz/sitemap.xml
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yandex
+Allow: /

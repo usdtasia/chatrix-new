@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Блог Prochat — Онлайн-чат и AI для бизнеса в Узбекистане</title>
+  <meta name="description" content="Статьи об онлайн-чате, AI-поддержке и росте конверсии для бизнеса в Узбекистане. Читайте на русском, узбекском и английском." />
+  <link rel="canonical" href="https://prochat.uz/blog/index.html" />
+  <meta property="og:title" content="Блог Prochat — Онлайн-чат и AI для бизнеса" />
+  <meta property="og:description" content="Практические статьи об онлайн-чате, AI-автопилоте и клиентской поддержке для бизнеса в Узбекистане." />
+  <meta property="og:url" content="https://prochat.uz/blog/index.html" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .blog-hero { background: linear-gradient(135deg, #f0f4ff, #faf5ff); padding: 80px 0 60px; text-align: center; }
+    .blog-hero h1 { font-size: clamp(32px, 4vw, 52px); font-weight: 800; margin-bottom: 16px; }
+    .blog-hero p { font-size: 18px; color: var(--text-muted); max-width: 520px; margin: 0 auto 32px; }
+    .blog-tabs { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; margin-bottom: 0; }
+    .blog-tab { padding: 8px 20px; border-radius: 100px; border: 2px solid var(--border); background: var(--bg); font-size: 14px; font-weight: 600; cursor: pointer; color: var(--text-muted); text-decoration: none; transition: all .2s; }
+    .blog-tab:hover, .blog-tab.active { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
+    .lang-badge { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; margin-left: 6px; }
+    .lang-ru { background: #fee2e2; color: #991b1b; }
+    .lang-uz { background: #dcfce7; color: #166534; }
+    .lang-en { background: #dbeafe; color: #1e40af; }
+    .blog-grid { padding: 64px 0 96px; }
+    .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .post-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: box-shadow .2s, transform .2s; }
+    .post-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+    .post-cover { height: 180px; display: flex; align-items: center; justify-content: center; font-size: 56px; }
+    .post-body { padding: 24px; }
+    .post-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .post-cat { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--primary); background: var(--primary-light); padding: 3px 10px; border-radius: 100px; }
+    .post-date { font-size: 12px; color: var(--text-muted); }
+    .post-card h2 { font-size: 17px; font-weight: 700; margin-bottom: 10px; line-height: 1.4; }
+    .post-card h2 a { color: var(--text); text-decoration: none; }
+    .post-card h2 a:hover { color: var(--primary); }
+    .post-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+    .post-read { font-size: 13px; font-weight: 600; color: var(--primary); text-decoration: none; }
+    .post-read:hover { text-decoration: underline; }
+    .post-time { font-size: 12px; color: var(--text-muted); }
+    @media (max-width: 900px) { .posts-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .posts-grid { grid-template-columns: 1fr; } }
+    [data-theme="dark"] .post-card { background: #1f2937; border-color: #374151; }
+    [data-theme="dark"] .blog-hero { background: linear-gradient(135deg, #1e1b4b, #1f2937); }
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="../index.html" class="logo">prochat<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html#features" data-i18n="nav_features">Возможности</a></li>
+      <li><a href="../index.html#pricing" data-i18n="nav_pricing">Цены</a></li>
+      <li><a href="index.html" style="color: var(--primary);" data-i18n="nav_blog">Блог</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#" class="btn-primary" data-i18n="nav_start">Начать бесплатно</a>
+      <button class="dark-toggle" id="darkToggle">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<section class="blog-hero">
+  <div class="container">
+    <h1 data-i18n="blog_title">Блог Prochat</h1>
+    <p data-i18n="blog_sub">Советы по росту конверсии, настройке чата и работе с клиентами</p>
+    <div class="blog-tabs">
+      <button class="blog-tab active" onclick="filterLang('all',this)">Все статьи</button>
+      <button class="blog-tab" onclick="filterLang('ru',this)">🇷🇺 Русский</button>
+      <button class="blog-tab" onclick="filterLang('uz',this)">🇺🇿 O'zbek</button>
+      <button class="blog-tab" onclick="filterLang('en',this)">🇬🇧 English</button>
+    </div>
+  </div>
+</section>
+
+<section class="blog-grid">
+  <div class="container">
+    <div class="posts-grid" id="postsGrid">
+
+      <!-- ── RU existing ───────────────────────── -->
+      <div class="post-card" data-lang="ru">
+        <div class="post-cover" style="background:linear-gradient(135deg,#e0e7ff,#dbeafe)">📈</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Конверсия</span><span class="lang-badge lang-ru">RU</span><span class="post-date">15 янв 2026</span></div>
+          <h2><a href="kak-chat-uvelichivaet-konversiyu.html">Как онлайн-чат увеличивает конверсию интернет-магазина на 18–25%</a></h2>
+          <p>Механика роста продаж через чат: почему клиенты уходят без покупки и как живой ответ меняет ситуацию.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="kak-chat-uvelichivaet-konversiyu.html" class="post-read">Читать →</a><span class="post-time">7 мин</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="ru">
+        <div class="post-cover" style="background:linear-gradient(135deg,#fce7f3,#ede9fe)">🤖</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">AI</span><span class="lang-badge lang-ru">RU</span><span class="post-date">22 янв 2026</span></div>
+          <h2><a href="ai-chatbot-vs-operator.html">AI чат-бот vs живой оператор: что выбрать</a></h2>
+          <p>Когда AI справляется сам, а когда нужен человек. Как настроить гибридную модель поддержки.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="ai-chatbot-vs-operator.html" class="post-read">Читать →</a><span class="post-time">8 мин</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="ru">
+        <div class="post-cover" style="background:linear-gradient(135deg,#d1fae5,#dbeafe)">📱</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Интеграции</span><span class="lang-badge lang-ru">RU</span><span class="post-date">1 фев 2026</span></div>
+          <h2><a href="kak-podklyuchit-telegram.html">Как подключить Telegram к сайту для поддержки клиентов</a></h2>
+          <p>Пошаговая инструкция: Telegram-бот + чат на сайте в одном интерфейсе оператора.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="kak-podklyuchit-telegram.html" class="post-read">Читать →</a><span class="post-time">5 мин</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="ru">
+        <div class="post-cover" style="background:linear-gradient(135deg,#fef3c7,#fce7f3)">⚠️</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Советы</span><span class="lang-badge lang-ru">RU</span><span class="post-date">10 фев 2026</span></div>
+          <h2><a href="5-oshibok-chat-na-sayte.html">5 ошибок при внедрении чата на сайт, которые убивают конверсию</a></h2>
+          <p>Частые грабли: навязчивый поп-ап, медленный ответ, офлайн без автоответа.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="5-oshibok-chat-na-sayte.html" class="post-read">Читать →</a><span class="post-time">6 мин</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="ru">
+        <div class="post-cover" style="background:linear-gradient(135deg,#e0e7ff,#fce7f3)">⚔️</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Сравнение</span><span class="lang-badge lang-ru">RU</span><span class="post-date">20 фев 2026</span></div>
+          <h2><a href="prochat-vs-chatra.html">Prochat vs Chatra: что выбрать для малого бизнеса</a></h2>
+          <p>Честное сравнение по ценам, функциям, поддержке и удобству.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="prochat-vs-chatra.html" class="post-read">Читать →</a>
+            <span class="post-time">9 мин</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── RU new ─────────────────────────────── -->
+      <div class="post-card" data-lang="ru">
+        <div class="post-cover" style="background:linear-gradient(135deg,#dbeafe,#e0e7ff)">🇺🇿</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Обзор</span><span class="lang-badge lang-ru">RU</span><span class="post-date">18 апр 2026</span></div>
+          <h2><a href="onlajn-chat-dlya-sajta-uzbekistan.html">Онлайн-чат для сайта в Узбекистане: как выбрать лучший сервис</a></h2>
+          <p>Сравниваем чаты с поддержкой узбекского языка, Telegram и оплатой в сумах.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="onlajn-chat-dlya-sajta-uzbekistan.html" class="post-read">Читать →</a><span class="post-time">7 мин</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="ru">
+        <div class="post-cover" style="background:linear-gradient(135deg,#d1fae5,#fef3c7)">🛒</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">E-commerce</span><span class="lang-badge lang-ru">RU</span><span class="post-date">18 апр 2026</span></div>
+          <h2><a href="onlajn-konsultant-internet-magazin.html">Онлайн-консультант для интернет-магазина</a></h2>
+          <p>Как снизить процент брошенных корзин и увеличить продажи через чат.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="onlajn-konsultant-internet-magazin.html" class="post-read">Читать →</a><span class="post-time">6 мин</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="ru">
+        <div class="post-cover" style="background:linear-gradient(135deg,#fef9c3,#dcfce7)">📋</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Практика</span><span class="lang-badge lang-ru">RU</span><span class="post-date">18 апр 2026</span></div>
+          <h2><a href="shablony-otvetov-dlya-chata.html">50 шаблонов ответов для онлайн-чата</a></h2>
+          <p>Готовые формулировки для приветствия, уточнений, ожидания и закрытия диалога.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="shablony-otvetov-dlya-chata.html" class="post-read">Читать →</a><span class="post-time">8 мин</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="ru">
+        <div class="post-cover" style="background:linear-gradient(135deg,#fce7f3,#dbeafe)">📉</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Конверсия</span><span class="lang-badge lang-ru">RU</span><span class="post-date">18 апр 2026</span></div>
+          <h2><a href="kak-snizit-otkazy-sajt-chat.html">Как снизить показатель отказов с помощью чата</a></h2>
+          <p>Механики удержания посетителей: проактивные приглашения, триггеры, exit-intent.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="kak-snizit-otkazy-sajt-chat.html" class="post-read">Читать →</a><span class="post-time">5 мин</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="ru">
+        <div class="post-cover" style="background:linear-gradient(135deg,#ede9fe,#dbeafe)">🏘️</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Недвижимость</span><span class="lang-badge lang-ru">RU</span><span class="post-date">18 апр 2026</span></div>
+          <h2><a href="chat-dlya-agentstva-nedvizhimosti.html">Онлайн-чат для агентства недвижимости</a></h2>
+          <p>Квалификация лидов, запись на показ и ночная обработка заявок через AI.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="chat-dlya-agentstva-nedvizhimosti.html" class="post-read">Читать →</a><span class="post-time">5 мин</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="ru">
+        <div class="post-cover" style="background:linear-gradient(135deg,#fce7f3,#ede9fe)">🧠</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">AI</span><span class="lang-badge lang-ru">RU</span><span class="post-date">18 апр 2026</span></div>
+          <h2><a href="kak-obuchit-ai-bota.html">Как обучить AI-бота на данных вашей компании</a></h2>
+          <p>База знаний, RAG, пороги уверенности — всё что нужно знать без технического бэкграунда.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="kak-obuchit-ai-bota.html" class="post-read">Читать →</a><span class="post-time">7 мин</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="ru">
+        <div class="post-cover" style="background:linear-gradient(135deg,#e0e7ff,#d1fae5)">📊</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Аналитика</span><span class="lang-badge lang-ru">RU</span><span class="post-date">18 апр 2026</span></div>
+          <h2><a href="metriki-onlajn-chata.html">Метрики онлайн-чата: что измерять в 2026</a></h2>
+          <p>FRT, CSAT, Missrate, конверсия — разбираем каждую метрику с целевыми значениями.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="metriki-onlajn-chata.html" class="post-read">Читать →</a><span class="post-time">6 мин</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="ru">
+        <div class="post-cover" style="background:linear-gradient(135deg,#dbeafe,#d1fae5)">✈️</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Сравнение</span><span class="lang-badge lang-ru">RU</span><span class="post-date">18 апр 2026</span></div>
+          <h2><a href="telegram-bot-ili-chat-na-sajte.html">Telegram-бот или чат на сайте: что выбрать</a></h2>
+          <p>Плюсы и минусы каждого канала — и почему в Узбекистане лучше использовать оба.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="telegram-bot-ili-chat-na-sajte.html" class="post-read">Читать →</a><span class="post-time">5 мин</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="ru">
+        <div class="post-cover" style="background:linear-gradient(135deg,#fef3c7,#dcfce7)">💰</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Продажи</span><span class="lang-badge lang-ru">RU</span><span class="post-date">18 апр 2026</span></div>
+          <h2><a href="kak-uvelichit-prodazhi-cherez-chat.html">10 способов увеличить продажи через онлайн-чат</a></h2>
+          <p>Проактивные триггеры, скрипты, follow-up — проверенные методы роста конверсии.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="kak-uvelichit-prodazhi-cherez-chat.html" class="post-read">Читать →</a><span class="post-time">7 мин</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="ru">
+        <div class="post-cover" style="background:linear-gradient(135deg,#ede9fe,#fce7f3)">🎨</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Настройка</span><span class="lang-badge lang-ru">RU</span><span class="post-date">18 апр 2026</span></div>
+          <h2><a href="nastrojka-chata-pod-brend.html">Как настроить виджет чата под стиль вашего бренда</a></h2>
+          <p>Цвета, аватар, позиция, White label — полная кастомизация без программирования.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="nastrojka-chata-pod-brend.html" class="post-read">Читать →</a><span class="post-time">5 мин</span></div>
+        </div>
+      </div>
+
+      <!-- ── UZ ─────────────────────────────────── -->
+      <div class="post-card" data-lang="uz">
+        <div class="post-cover" style="background:linear-gradient(135deg,#dcfce7,#dbeafe)">🇺🇿</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Tahlil</span><span class="lang-badge lang-uz">UZ</span><span class="post-date">18 apr 2026</span></div>
+          <h2><a href="uz/onlayn-chat-sayt-uchun.html">Sayt uchun onlayn chat — O'zbekiston biznesi uchun qo'llanma</a></h2>
+          <p>O'zbek tili, Telegram, UZS to'lov — to'liq taqqoslash va tavsiya.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="uz/onlayn-chat-sayt-uchun.html" class="post-read">O'qish →</a><span class="post-time">7 daq</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="uz">
+        <div class="post-cover" style="background:linear-gradient(135deg,#fef9c3,#dcfce7)">⚡</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">O'rnatish</span><span class="lang-badge lang-uz">UZ</span><span class="post-date">18 apr 2026</span></div>
+          <h2><a href="uz/chat-vidjetini-ornatish.html">Saytga chat vidjetini 5 daqiqada qanday o'rnatish</a></h2>
+          <p>HTML, WordPress, Tilda — barcha platformalar uchun. Dasturchi shart emas.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="uz/chat-vidjetini-ornatish.html" class="post-read">O'qish →</a><span class="post-time">5 daq</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="uz">
+        <div class="post-cover" style="background:linear-gradient(135deg,#fce7f3,#ede9fe)">🤖</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">AI</span><span class="lang-badge lang-uz">UZ</span><span class="post-date">18 apr 2026</span></div>
+          <h2><a href="uz/ai-chatbot-vs-tirik-operator.html">AI chatbot yoki tirik operator: qaysi biri yaxshi</a></h2>
+          <p>Ikkala yondashuvning afzalliklari va gibrid modelni qanday sozlash.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="uz/ai-chatbot-vs-tirik-operator.html" class="post-read">O'qish →</a><span class="post-time">6 daq</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="uz">
+        <div class="post-cover" style="background:linear-gradient(135deg,#dbeafe,#dcfce7)">✈️</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Telegram</span><span class="lang-badge lang-uz">UZ</span><span class="post-date">18 apr 2026</span></div>
+          <h2><a href="uz/telegram-va-sayt-chatini-birlashtirish.html">Telegram va sayt chatini birlashtirish</a></h2>
+          <p>Barcha kanallar bir operatorlar paneliga — to'liq qo'llanma.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="uz/telegram-va-sayt-chatini-birlashtirish.html" class="post-read">O'qish →</a><span class="post-time">5 daq</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="uz">
+        <div class="post-cover" style="background:linear-gradient(135deg,#d1fae5,#fef3c7)">🛒</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">E-commerce</span><span class="lang-badge lang-uz">UZ</span><span class="post-date">18 apr 2026</span></div>
+          <h2><a href="uz/internet-dokon-uchun-chat.html">Internet-do'kon uchun onlayn-chat</a></h2>
+          <p>Savat tashlab ketishni kamaytirish va savdoni oshirish — amaliy usullar.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="uz/internet-dokon-uchun-chat.html" class="post-read">O'qish →</a><span class="post-time">6 daq</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="uz">
+        <div class="post-cover" style="background:linear-gradient(135deg,#fce7f3,#dbeafe)">📈</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Konversiya</span><span class="lang-badge lang-uz">UZ</span><span class="post-date">18 apr 2026</span></div>
+          <h2><a href="uz/konversiyani-oshirish-chat.html">Chat yordamida sayt konversiyasini oshirish</a></h2>
+          <p>Proaktiv xabarlar, trigger sozlash, tezkor javob tugmalari.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="uz/konversiyani-oshirish-chat.html" class="post-read">O'qish →</a><span class="post-time">5 daq</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="uz">
+        <div class="post-cover" style="background:linear-gradient(135deg,#e0e7ff,#dcfce7)">⭐</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Support</span><span class="lang-badge lang-uz">UZ</span><span class="post-date">18 apr 2026</span></div>
+          <h2><a href="uz/mijozlar-xizmati-chat.html">Mijozlar xizmatini chat orqali yaxshilash</a></h2>
+          <p>CSAT oshirish, FRT maqsadlari, operator maslahatlari.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="uz/mijozlar-xizmati-chat.html" class="post-read">O'qish →</a><span class="post-time">5 daq</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="uz">
+        <div class="post-cover" style="background:linear-gradient(135deg,#ede9fe,#fce7f3)">⚔️</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Taqqoslash</span><span class="lang-badge lang-uz">UZ</span><span class="post-date">18 apr 2026</span></div>
+          <h2><a href="uz/prochat-vs-jivosite.html">Prochat vs JivoSite: O'zbekiston uchun qaysi chat yaxshiroq</a></h2>
+          <p>Til, narx, Telegram, AI — to'liq taqqoslash.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="uz/prochat-vs-jivosite.html" class="post-read">O'qish →</a><span class="post-time">6 daq</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="uz">
+        <div class="post-cover" style="background:linear-gradient(135deg,#fef9c3,#dcfce7)">📋</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Amaliyot</span><span class="lang-badge lang-uz">UZ</span><span class="post-date">18 apr 2026</span></div>
+          <h2><a href="uz/tez-javob-shablonlari.html">Chat uchun 50 ta tez javob shabloni</a></h2>
+          <p>Salomlashishdan yopishgacha — o'zbek tilida tayyor shablonlar.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="uz/tez-javob-shablonlari.html" class="post-read">O'qish →</a><span class="post-time">8 daq</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="uz">
+        <div class="post-cover" style="background:linear-gradient(135deg,#dbeafe,#d1fae5)">🏥</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Tibbiyot</span><span class="lang-badge lang-uz">UZ</span><span class="post-date">18 apr 2026</span></div>
+          <h2><a href="uz/chat-tibbiyot-klinikasi.html">Tibbiyot klinikasi uchun onlayn-chat</a></h2>
+          <p>Qabul yozish, maxfiylik, Telegram integratsiyasi.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="uz/chat-tibbiyot-klinikasi.html" class="post-read">O'qish →</a><span class="post-time">5 daq</span></div>
+        </div>
+      </div>
+
+      <!-- ── EN ─────────────────────────────────── -->
+      <div class="post-card" data-lang="en">
+        <div class="post-cover" style="background:linear-gradient(135deg,#dbeafe,#e0e7ff)">🌐</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Review</span><span class="lang-badge lang-en">EN</span><span class="post-date">Apr 18, 2026</span></div>
+          <h2><a href="en/live-chat-software-uzbekistan.html">Best Live Chat Software for Uzbekistan in 2026</a></h2>
+          <p>Compare top options with Uzbek language support, UZS pricing, and Telegram integration.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="en/live-chat-software-uzbekistan.html" class="post-read">Read →</a><span class="post-time">7 min</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="en">
+        <div class="post-cover" style="background:linear-gradient(135deg,#fef9c3,#dcfce7)">⚡</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Tutorial</span><span class="lang-badge lang-en">EN</span><span class="post-date">Apr 18, 2026</span></div>
+          <h2><a href="en/how-to-add-live-chat-to-website.html">How to Add Live Chat to Your Website in 5 Minutes</a></h2>
+          <p>Works with HTML, WordPress, Tilda. No developer needed.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="en/how-to-add-live-chat-to-website.html" class="post-read">Read →</a><span class="post-time">5 min</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="en">
+        <div class="post-cover" style="background:linear-gradient(135deg,#fce7f3,#ede9fe)">🤖</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Strategy</span><span class="lang-badge lang-en">EN</span><span class="post-date">Apr 18, 2026</span></div>
+          <h2><a href="en/live-chat-vs-chatbot.html">Live Chat vs Chatbot: Which Does Your Business Need?</a></h2>
+          <p>When each works best — and why the hybrid model wins.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="en/live-chat-vs-chatbot.html" class="post-read">Read →</a><span class="post-time">6 min</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="en">
+        <div class="post-cover" style="background:linear-gradient(135deg,#e0e7ff,#dbeafe)">📈</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Conversion</span><span class="lang-badge lang-en">EN</span><span class="post-date">Apr 18, 2026</span></div>
+          <h2><a href="en/increase-website-conversion-live-chat.html">How Live Chat Increases Website Conversion Rate</a></h2>
+          <p>Proactive triggers, quick reply chips, and what to avoid.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="en/increase-website-conversion-live-chat.html" class="post-read">Read →</a><span class="post-time">6 min</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="en">
+        <div class="post-cover" style="background:linear-gradient(135deg,#dbeafe,#d1fae5)">✈️</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Telegram</span><span class="lang-badge lang-en">EN</span><span class="post-date">Apr 18, 2026</span></div>
+          <h2><a href="en/telegram-live-chat-integration.html">How to Integrate Telegram with Your Website Live Chat</a></h2>
+          <p>3-step setup. All messages in one operator panel.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="en/telegram-live-chat-integration.html" class="post-read">Read →</a><span class="post-time">5 min</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="en">
+        <div class="post-cover" style="background:linear-gradient(135deg,#fce7f3,#ede9fe)">🧠</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">AI</span><span class="lang-badge lang-en">EN</span><span class="post-date">Apr 18, 2026</span></div>
+          <h2><a href="en/ai-customer-support-guide.html">AI Customer Support Automation: Complete Guide 2026</a></h2>
+          <p>Knowledge base setup, escalation rules, quality monitoring.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="en/ai-customer-support-guide.html" class="post-read">Read →</a><span class="post-time">7 min</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="en">
+        <div class="post-cover" style="background:linear-gradient(135deg,#d1fae5,#fef3c7)">🛒</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">E-commerce</span><span class="lang-badge lang-en">EN</span><span class="post-date">Apr 18, 2026</span></div>
+          <h2><a href="en/live-chat-for-ecommerce.html">Live Chat for E-Commerce: Reduce Cart Abandonment</a></h2>
+          <p>Where chat impacts e-commerce most and how to configure it.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="en/live-chat-for-ecommerce.html" class="post-read">Read →</a><span class="post-time">6 min</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="en">
+        <div class="post-cover" style="background:linear-gradient(135deg,#fef3c7,#e0e7ff)">⏱️</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Best Practices</span><span class="lang-badge lang-en">EN</span><span class="post-date">Apr 18, 2026</span></div>
+          <h2><a href="en/customer-chat-response-time.html">How Fast Should You Respond to Customer Chats?</a></h2>
+          <p>Benchmarks, FRT targets, and how to hit them consistently.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="en/customer-chat-response-time.html" class="post-read">Read →</a><span class="post-time">5 min</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="en">
+        <div class="post-cover" style="background:linear-gradient(135deg,#dcfce7,#ede9fe)">🏆</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Best Practices</span><span class="lang-badge lang-en">EN</span><span class="post-date">Apr 18, 2026</span></div>
+          <h2><a href="en/live-chat-best-practices.html">15 Live Chat Best Practices for Better CX</a></h2>
+          <p>Proven tactics for operators and managers to improve CSAT and conversion.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="en/live-chat-best-practices.html" class="post-read">Read →</a><span class="post-time">8 min</span></div>
+        </div>
+      </div>
+      <div class="post-card" data-lang="en">
+        <div class="post-cover" style="background:linear-gradient(135deg,#e0e7ff,#fce7f3)">⚔️</div>
+        <div class="post-body">
+          <div class="post-meta"><span class="post-cat">Comparison</span><span class="lang-badge lang-en">EN</span><span class="post-date">Apr 18, 2026</span></div>
+          <h2><a href="en/prochat-vs-jivosite.html">Prochat vs JivoSite: Which is Better for CIS?</a></h2>
+          <p>Language, pricing, AI, Telegram — honest head-to-head comparison.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><a href="en/prochat-vs-jivosite.html" class="post-read">Read →</a><span class="post-time">6 min</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-bottom">
+    <div class="container">
+      <span>© 2026 Prochat · <span data-i18n="footer_copy">Ташкент, Узбекистан</span></span>
+      <span><a href="../privacy.html" data-i18n="footer_privacy">Конфиденциальность</a> · <a href="../terms.html" data-i18n="footer_terms">Условия</a></span>
+    </div>
+  </div>
+</footer>
+<script src="../i18n-pages.js"></script>
+<script>
+function filterLang(lang, btn) {
+  document.querySelectorAll('.blog-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.post-card[data-lang]').forEach(card => {
+    card.style.display = (lang === 'all' || card.dataset.lang === lang) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

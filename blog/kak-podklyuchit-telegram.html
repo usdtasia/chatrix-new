@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Как подключить Telegram к сайту для поддержки клиентов · Prochat</title>
+  <meta name="description" content="Пошаговая инструкция: подключаем Telegram-бот к онлайн-чату на сайте. Все сообщения из Telegram и сайта — в одном окне оператора." />
+  <meta name="keywords" content="подключить telegram к сайту, telegram чат поддержка клиентов, telegram бот для бизнеса узбекистан" />
+  <link rel="canonical" href="https://prochat.uz/blog/kak-podklyuchit-telegram.html" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="../index.html" class="logo">prochat<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html#features" data-i18n="nav_features">Возможности</a></li>
+      <li><a href="../index.html#pricing" data-i18n="nav_pricing">Цены</a></li>
+      <li><a href="index.html" style="color: var(--primary);" data-i18n="nav_blog">Блог</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#" class="btn-primary" data-i18n="nav_start">Начать бесплатно</a>
+      <button class="dark-toggle" id="darkToggle">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<section class="article-hero">
+  <div class="container">
+    <div class="article-meta">
+      <span class="article-cat">Интеграции</span>
+      <span class="article-date">1 февраля 2024</span>
+      <span class="article-read">· 5 мин чтения</span>
+    </div>
+    <h1>Как подключить Telegram к сайту для поддержки клиентов</h1>
+    <p class="lead">Пошаговая инструкция: чат на сайте + Telegram в одном окне оператора. Клиент пишет где удобно — оператор отвечает в одном месте.</p>
+  </div>
+</section>
+
+<article class="article-body"><div id="lang-na-notice" style="display:none;background:#fef9c3;border-left:4px solid #eab308;padding:12px 20px;margin:0;font-size:14px;font-weight:500;" data-i18n="lang_na">Статья доступна только на русском языке.</div>
+  <div class="container">
+
+    <p>Telegram — самый популярный мессенджер в Узбекистане и СНГ. Многие клиенты предпочитают писать именно туда, а не в чат на сайте. Проблема: операторы вынуждены переключаться между несколькими приложениями — Telegram, сайт, почта. Это медленно и часто что-то теряется.</p>
+
+    <p>Решение: подключить Telegram к Prochat, чтобы все сообщения приходили в единое окно оператора.</p>
+
+    <h2>Что вы получите</h2>
+    <ul>
+      <li>Все сообщения из Telegram и сайта — в одном интерфейсе</li>
+      <li>История переписки сохраняется независимо от канала</li>
+      <li>AI отвечает в Telegram так же, как в чате на сайте</li>
+      <li>Один оператор обрабатывает оба канала без переключения</li>
+      <li>Аналитика по каналам — откуда больше обращений</li>
+    </ul>
+
+    <h2>Пошаговая инструкция</h2>
+
+    <h3>Шаг 1. Создайте Telegram-бота</h3>
+    <p>Откройте Telegram, найдите @BotFather. Отправьте команду <code>/newbot</code>, укажите имя бота (например, "Поддержка Prochat") и username (например, <code>ProchatSupportBot</code>). BotFather выдаст вам <strong>токен</strong> — длинную строку вида <code>7123456789:AAHabc...</code>. Сохраните его.</p>
+
+    <div class="callout">
+      <p>⚠️ <strong>Важно:</strong> Никому не давайте токен бота. С его помощью можно полностью управлять ботом от вашего имени.</p>
+    </div>
+
+    <h3>Шаг 2. Подключите бота к Prochat</h3>
+    <ol>
+      <li>Войдите в кабинет Prochat</li>
+      <li>Перейдите в <strong>Настройки → Интеграции → Telegram</strong></li>
+      <li>Вставьте токен из шага 1</li>
+      <li>Нажмите "Подключить"</li>
+      <li>Готово — интеграция активирована за 30 секунд</li>
+    </ol>
+
+    <h3>Шаг 3. Настройте поведение бота</h3>
+    <p>После подключения настройте:</p>
+    <ul>
+      <li><strong>Приветственное сообщение</strong> — что бот напишет при первом обращении</li>
+      <li><strong>Офлайн-ответ</strong> — если операторов нет, AI ответит автоматически</li>
+      <li><strong>Маршрутизация</strong> — в какой отдел направлять Telegram-обращения</li>
+    </ul>
+
+    <h3>Шаг 4. Разместите ссылку на бота</h3>
+    <p>Добавьте ссылку <code>t.me/ваш_бот</code> на сайт, в подпись email, в соцсети. Клиенты смогут написать вам в Telegram, не покидая Telegram.</p>
+
+    <div class="stat-box">
+      <div class="big">73%</div>
+      <p>пользователей в Узбекистане активно используют Telegram как основной мессенджер</p>
+    </div>
+
+    <h2>Полезные советы</h2>
+
+    <h3>Telegram-кнопка на сайте</h3>
+    <p>Добавьте кнопку "Написать в Telegram" рядом с виджетом чата. Дайте клиенту выбор — некоторые предпочитают Telegram даже если сейчас на сайте.</p>
+
+    <h3>AI работает в обоих каналах</h3>
+    <p>Если у вас настроен AI-автопилот — он отвечает на вопросы в Telegram так же как на сайте. Обучите его один раз — работает везде.</p>
+
+    <h3>Группировка по клиенту</h3>
+    <p>Prochat объединяет историю клиента из разных каналов. Если клиент писал на сайте, а потом в Telegram — оператор видит всю историю в одном месте.</p>
+
+    <h2>Итого: зачем это нужно</h2>
+    <p>Ваши клиенты уже в Telegram. Не заставляйте их переходить на другие платформы — будьте там, где они уже есть. Интеграция занимает 5 минут и сразу расширяет охват без дополнительных операторов.</p>
+
+    <div class="article-cta">
+      <h3>Подключите Telegram прямо сейчас</h3>
+      <p>Доступно на тарифе Essential от 100 000 сум/мес. 10 дней бесплатно.</p>
+      <a href="../index.html#pricing" class="btn">Начать бесплатно →</a>
+    </div>
+
+  </div>
+</article>
+
+<section class="related-posts">
+  <div class="container" style="max-width: 760px;">
+    <h2>Читайте также</h2>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+      <a href="ai-chatbot-vs-operator.html" style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; text-decoration: none; color: var(--text);">
+        <div style="font-size: 28px; margin-bottom: 12px;">🤖</div>
+        <strong style="display: block; margin-bottom: 6px;">AI vs живой оператор</strong>
+        <span style="font-size: 13px; color: var(--text-muted);">8 мин чтения</span>
+      </a>
+      <a href="5-oshibok-chat-na-sayte.html" style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; text-decoration: none; color: var(--text);">
+        <div style="font-size: 28px; margin-bottom: 12px;">⚠️</div>
+        <strong style="display: block; margin-bottom: 6px;">5 ошибок при внедрении чата</strong>
+        <span style="font-size: 13px; color: var(--text-muted);">6 мин чтения</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-bottom">
+    <div class="container">
+      <span>© 2026 Prochat · <a href="index.html">Блог</a></span>
+      <span><a href="../privacy.html" data-i18n="footer_privacy">Конфиденциальность</a> · <a href="../terms.html" data-i18n="footer_terms">Условия</a></span>
+    </div>
+  </div>
+</footer>
+<style>
+.article-hero{background:linear-gradient(135deg,#f0f4ff,#faf5ff);padding:80px 0 60px}.article-hero .container{max-width:760px}.article-meta{display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap}.article-cat{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);background:var(--primary-light);padding:4px 12px;border-radius:100px}.article-date,.article-read{font-size:13px;color:var(--text-muted)}.article-hero h1{font-size:clamp(28px,4vw,44px);font-weight:800;line-height:1.2;margin-bottom:20px;letter-spacing:-1px}.article-hero .lead{font-size:18px;color:var(--text-muted);line-height:1.7}.article-body{padding:64px 0 96px}.article-body .container{max-width:760px}.article-body h2{font-size:26px;font-weight:800;margin:48px 0 16px;letter-spacing:-.5px}.article-body h3{font-size:20px;font-weight:700;margin:32px 0 12px}.article-body p{font-size:16px;line-height:1.8;margin-bottom:20px}.article-body ul,.article-body ol{margin:0 0 20px 24px}.article-body li{font-size:16px;line-height:1.8;margin-bottom:8px}.article-body code{background:var(--bg2);padding:2px 8px;border-radius:4px;font-family:monospace;font-size:14px}.callout{background:var(--primary-light);border-left:4px solid var(--primary);border-radius:0 12px 12px 0;padding:20px 24px;margin:28px 0}.callout p{margin:0;font-weight:500}.stat-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;margin:32px 0;text-align:center}.stat-box .big{font-size:48px;font-weight:800;color:var(--primary)}.stat-box p{margin:0;font-size:15px;color:var(--text-muted)}.article-cta{background:linear-gradient(135deg,var(--primary),#8b5cf6);border-radius:var(--radius-lg);padding:48px;text-align:center;color:white;margin-top:60px}.article-cta h3{font-size:24px;font-weight:800;margin-bottom:12px}.article-cta p{opacity:.85;margin-bottom:24px}.article-cta .btn{background:white;color:var(--primary);padding:14px 28px;border-radius:12px;font-weight:700;text-decoration:none;display:inline-block}.related-posts{padding:64px 0;background:var(--bg2)}[data-theme="dark"] .article-hero{background:linear-gradient(135deg,#1e1b4b,#1f2937)}[data-theme="dark"] .callout{background:#312e81}[data-theme="dark"] .stat-box{background:#1f2937;border-color:#374151}[data-theme="dark"] .article-body code{background:#374151}[data-theme="dark"] .related-posts a{background:#1f2937;border-color:#374151}
+</style>
+<script src="../i18n-pages.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Партнёрская программа · Prochat</title>
+  <meta name="description" content="Зарабатывайте 50% с каждого привлечённого клиента Prochat. Партнёрская программа для веб-студий, агентств и IT-фрилансеров в Узбекистане." />
+  <meta name="keywords" content="партнерская программа prochat узбекистан, реферальная программа чат сайт, заработок веб студия узбекистан" />
+  <link rel="canonical" href="https://prochat.uz/partner.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* HERO */
+    .partner-hero { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 60%, #312e81 100%); padding: 96px 0 80px; color: #fff; text-align: center; overflow: hidden; position: relative; }
+    .partner-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(99,102,241,.3), transparent); pointer-events: none; }
+    .partner-hero .container { position: relative; }
+    .partner-tag { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); border-radius: 100px; padding: 6px 16px; font-size: 13px; font-weight: 600; margin-bottom: 28px; }
+    .partner-hero h1 { font-size: clamp(32px,5vw,60px); font-weight: 800; letter-spacing: -1.5px; margin-bottom: 20px; line-height: 1.1; }
+    .partner-hero h1 span { background: linear-gradient(135deg, #a5b4fc, #c4b5fd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .partner-hero p { font-size: 18px; opacity: .8; max-width: 540px; margin: 0 auto 40px; line-height: 1.6; }
+    .partner-hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .partner-hero-btns a { padding: 15px 32px; border-radius: 12px; font-weight: 700; font-size: 15px; text-decoration: none; transition: .2s; }
+    .partner-hero-btns .btn-white { background: #fff; color: #1e1b4b; }
+    .partner-hero-btns .btn-white:hover { background: #e0e7ff; }
+    .partner-hero-btns .btn-ghost-w { border: 1px solid rgba(255,255,255,.3); color: #fff; }
+    .partner-hero-btns .btn-ghost-w:hover { background: rgba(255,255,255,.1); }
+
+    /* COMMISSION HIGHLIGHT */
+    .commission-bar { background: var(--primary); padding: 20px 0; }
+    .commission-bar .container { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
+    .commission-stat { text-align: center; color: #fff; }
+    .commission-stat .num { font-size: 36px; font-weight: 800; line-height: 1; }
+    .commission-stat .label { font-size: 13px; opacity: .8; margin-top: 4px; }
+
+    /* HOW IT WORKS */
+    .how-steps { padding: 96px 0; background: var(--bg); }
+    .how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; position: relative; }
+    .how-grid::before { content: ''; position: absolute; top: 28px; left: 10%; right: 10%; height: 2px; background: var(--border); z-index: 0; }
+    .how-step { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 24px; text-align: center; position: relative; z-index: 1; }
+    .how-step-num { width: 48px; height: 48px; background: var(--primary); color: #fff; border-radius: 50%; font-size: 18px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+    .how-step h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .how-step p { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+    /* INCOME CALCULATOR */
+    .calc-section { padding: 96px 0; background: var(--bg2); }
+    .calc-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 48px; max-width: 720px; margin: 0 auto; box-shadow: var(--shadow); }
+    .calc-card h2 { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
+    .calc-card .sub { color: var(--text-muted); font-size: 15px; margin-bottom: 32px; }
+    .calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+    .calc-field label { font-size: 13px; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 8px; }
+    .calc-field input[type=range] { width: 100%; accent-color: var(--primary); }
+    .calc-field .val { font-size: 20px; font-weight: 800; color: var(--primary); margin-top: 4px; }
+    .calc-result { background: linear-gradient(135deg, var(--primary), #8b5cf6); border-radius: 14px; padding: 28px 32px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 8px; }
+    .calc-result-item { text-align: center; color: #fff; }
+    .calc-result-item .r-num { font-size: 28px; font-weight: 800; line-height: 1; }
+    .calc-result-item .r-label { font-size: 12px; opacity: .8; margin-top: 4px; }
+
+    /* WHO */
+    .who-section { padding: 96px 0; background: var(--bg); }
+    .who-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .who-card { border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px 28px; }
+    .who-card .who-icon { font-size: 36px; margin-bottom: 16px; }
+    .who-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .who-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin: 0; }
+
+    /* TERMS */
+    .terms-section { padding: 96px 0; background: var(--bg2); }
+    .terms-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; }
+    .terms-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; }
+    .terms-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 12px; display: flex; gap: 8px; align-items: center; }
+    .terms-card ul { margin: 0; padding: 0; list-style: none; }
+    .terms-card li { font-size: 14px; color: var(--text-muted); padding: 6px 0; border-bottom: 1px solid var(--border); display: flex; gap: 8px; }
+    .terms-card li:last-child { border-bottom: none; }
+    .terms-card li::before { content: '✓'; color: #16a34a; font-weight: 700; flex-shrink: 0; }
+    .terms-card.deny li::before { content: '✗'; color: #dc2626; }
+
+    /* FAQ */
+    .partner-faq { padding: 96px 0; background: var(--bg); }
+    .faq-list { max-width: 720px; margin: 48px auto 0; display: flex; flex-direction: column; gap: 2px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .faq-q { padding: 20px 24px; font-size: 15px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--bg); transition: .2s; }
+    .faq-q:hover { background: var(--bg2); }
+    .faq-q::after { content: '+'; font-size: 20px; color: var(--text-muted); font-weight: 400; transition: .2s; }
+    .faq-item.open .faq-q::after { content: '−'; }
+    .faq-a { display: none; padding: 0 24px 20px; font-size: 14px; color: var(--text-muted); line-height: 1.7; background: var(--bg); }
+    .faq-item.open .faq-a { display: block; }
+
+    /* CTA */
+    .partner-cta { background: linear-gradient(135deg, var(--primary), #8b5cf6); padding: 96px 0; text-align: center; color: #fff; }
+    .partner-cta h2 { font-size: clamp(28px,4vw,44px); font-weight: 800; margin-bottom: 16px; letter-spacing: -.5px; }
+    .partner-cta p { font-size: 18px; opacity: .85; max-width: 480px; margin: 0 auto 40px; }
+    .partner-cta a { background: #fff; color: var(--primary); padding: 16px 36px; border-radius: 14px; font-weight: 700; font-size: 16px; text-decoration: none; display: inline-block; transition: .2s; }
+    .partner-cta a:hover { background: #e0e7ff; }
+
+    [data-theme="dark"] .how-step, [data-theme="dark"] .terms-card, [data-theme="dark"] .calc-card, [data-theme="dark"] .who-card { background: #1f2937; border-color: #374151; }
+    @media (max-width: 900px) { .how-grid, .who-grid { grid-template-columns: repeat(2,1fr); } .how-grid::before { display: none; } .terms-grid { grid-template-columns: 1fr; } .calc-row { grid-template-columns: 1fr; } .calc-result { grid-template-columns: 1fr; } .commission-bar .container { gap: 24px; } }
+    @media (max-width: 600px) { .how-grid, .who-grid { grid-template-columns: 1fr; } .calc-card { padding: 28px 20px; } }
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">prochat<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#features">Возможности</a></li>
+      <li><a href="index.html#pricing">Цены</a></li>
+      <li><a href="blog/index.html">Блог</a></li>
+      <li><a href="partner.html" style="color: var(--primary);">Партнёрам</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="index.html#pricing" class="btn-primary">Начать бесплатно</a>
+      <button class="dark-toggle" id="darkToggle">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="partner-hero">
+  <div class="container">
+    <div class="partner-tag">🤝 Партнёрская программа Prochat</div>
+    <h1>Зарабатывайте<br><span>50% с каждого клиента</span></h1>
+    <p>Рекомендуйте Prochat своим клиентам — и получайте половину от каждого их платежа. Ежемесячно, пока клиент остаётся с нами.</p>
+    <div class="partner-hero-btns">
+      <a href="mailto:partners@prochat.uz?subject=Хочу стать партнёром Prochat" class="btn-white">Стать партнёром →</a>
+      <a href="#how" class="btn-ghost-w">Как это работает</a>
+    </div>
+  </div>
+</section>
+
+<!-- COMMISSION BAR -->
+<div class="commission-bar">
+  <div class="container">
+    <div class="commission-stat">
+      <div class="num">50%</div>
+      <div class="label">комиссия с каждого платежа</div>
+    </div>
+    <div class="commission-stat">
+      <div class="num">∞</div>
+      <div class="label">срок выплат — пока клиент платит</div>
+    </div>
+    <div class="commission-stat">
+      <div class="num">1×/мес</div>
+      <div class="label">выплаты раз в месяц</div>
+    </div>
+    <div class="commission-stat">
+      <div class="num">0</div>
+      <div class="label">стоимость участия</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-steps" id="how">
+  <div class="container">
+    <div class="section-header">
+      <h2>Как это работает</h2>
+      <p>Четыре простых шага до первой выплаты</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-step-num">1</div>
+        <h3>Напишите нам</h3>
+        <p>Отправьте заявку на partners@prochat.uz — мы создадим ваш партнёрский аккаунт и выдадим реферальную ссылку</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">2</div>
+        <h3>Поделитесь ссылкой</h3>
+        <p>Отправляйте реферальную ссылку клиентам, публикуйте в соцсетях, добавляйте в коммерческие предложения</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">3</div>
+        <h3>Клиент оплачивает</h3>
+        <p>Когда клиент, пришедший по вашей ссылке, оплачивает тариф — 50% от суммы начисляется вам</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">4</div>
+        <h3>Получите деньги</h3>
+        <p>1-го числа каждого месяца выплачиваем накопленную комиссию на Uzcard, Humo или банковский счёт</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calc-section" id="calc">
+  <div class="container">
+    <div class="calc-card">
+      <h2>Посчитайте ваш доход</h2>
+      <p class="sub">Передвигайте ползунки и смотрите, сколько можно зарабатывать</p>
+      <div class="calc-row">
+        <div class="calc-field">
+          <label>Клиентов в месяц: <span id="clientsVal">5</span></label>
+          <input type="range" min="1" max="50" value="5" id="clientsRange" oninput="calcPartner()">
+        </div>
+        <div class="calc-field">
+          <label>Средний тариф:</label>
+          <select id="planSelect" onchange="calcPartner()" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:8px;background:var(--bg2);font-family:inherit;font-size:14px;color:var(--text)">
+            <option value="100000">Essential — 100 000 сум/оператор/мес</option>
+            <option value="500000" selected>Pro — 500 000 сум/мес</option>
+          </select>
+        </div>
+      </div>
+      <div class="calc-result">
+        <div class="calc-result-item">
+          <div class="r-num" id="resMonth">1 250 000 сум</div>
+          <div class="r-label">в первый месяц</div>
+        </div>
+        <div class="calc-result-item">
+          <div class="r-num" id="resYear">15 000 000 сум</div>
+          <div class="r-label">за первый год</div>
+        </div>
+        <div class="calc-result-item">
+          <div class="r-num" id="res3Year">45 000 000 сум</div>
+          <div class="r-label">за 3 года (если клиенты остаются)</div>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--text-muted);margin-top:12px;margin-bottom:0;">* Расчёт приблизительный. Предполагает 1 оператор на клиента и сохранение подписки. Сумма накапливается пассивно.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="who-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Кому подходит программа</h2>
+      <p>Если вы работаете с бизнесом — вы уже готовы</p>
+    </div>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-icon">🖥️</div>
+        <h3>Веб-студии и разработчики</h3>
+        <p>Делаете сайты клиентам? Установите Prochat как часть услуги — и зарабатывайте со всех своих клиентов ежемесячно.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">📣</div>
+        <h3>Digital-агентства и маркетологи</h3>
+        <p>Работаете над конверсией клиентских сайтов? Prochat — логичная часть пакета услуг. И дополнительный доход.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">💻</div>
+        <h3>IT-фрилансеры</h3>
+        <p>Занимаетесь технической поддержкой бизнеса? Рекомендуйте Prochat — это пассивный доход без дополнительной работы.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">🎓</div>
+        <h3>Бизнес-консультанты</h3>
+        <p>Консультируете по продажам, CRM, клиентскому сервису? Prochat усилит ваши рекомендации и принесёт доход.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">📲</div>
+        <h3>Telegram-каналы и блогеры</h3>
+        <p>Есть аудитория предпринимателей? Разместите партнёрскую ссылку — это честный продукт, который действительно помогает.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">🏢</div>
+        <h3>Бизнес-инкубаторы и ассоциации</h3>
+        <p>Работаете с сообществом предпринимателей? Предложите Prochat как инструмент — и получите процент с каждого участника.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TERMS -->
+<section class="terms-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Условия участия</h2>
+      <p>Прозрачно и честно</p>
+    </div>
+    <div class="terms-grid">
+      <div class="terms-card">
+        <h3>✅ Разрешено</h3>
+        <ul>
+          <li>Рекламировать в соцсетях, блоге, Telegram-канале</li>
+          <li>Добавлять в коммерческие предложения своим клиентам</li>
+          <li>Устанавливать Prochat клиентам как часть услуги</li>
+          <li>Участвовать агентствам — с раскрытием партнёрства</li>
+          <li>Рекомендовать в профессиональных сообществах</li>
+          <li>Использовать в email-рассылках и презентациях</li>
+        </ul>
+      </div>
+      <div class="terms-card deny">
+        <h3>❌ Запрещено</h3>
+        <ul>
+          <li>Регистрировать аккаунт для себя по своей же ссылке</li>
+          <li>Использовать спам и нежелательные рассылки</li>
+          <li>Создавать несколько партнёрских аккаунтов</li>
+          <li>Размещать рекламу на купонных и cashback-сайтах без согласования</li>
+          <li>Вводить пользователей в заблуждение о продукте</li>
+          <li>Использовать контекстную рекламу на бренд «Prochat»</li>
+        </ul>
+      </div>
+      <div class="terms-card">
+        <h3>💰 Выплаты</h3>
+        <ul>
+          <li>Выплата 1 раз в месяц (1-е число)</li>
+          <li>Способы: Uzcard, Humo, банковский перевод</li>
+          <li>Минимальная сумма к выплате: 50 000 сум</li>
+          <li>Комиссия начисляется со дня первого платежа клиента</li>
+          <li>При возврате клиенту — соответствующая комиссия вычитается</li>
+          <li>Отчёт по начислениям в партнёрском кабинете</li>
+        </ul>
+      </div>
+      <div class="terms-card">
+        <h3>📊 Отслеживание</h3>
+        <ul>
+          <li>Личный партнёрский кабинет с аналитикой</li>
+          <li>Видите переходы, регистрации и оплаты в реальном времени</li>
+          <li>История начислений и выплат</li>
+          <li>Срок атрибуции: 90 дней с перехода по ссылке</li>
+          <li>Комиссия сохраняется весь срок подписки клиента</li>
+          <li>Уведомления в Telegram при каждой оплате клиента</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="partner-faq">
+  <div class="container">
+    <div class="section-header">
+      <h2>Частые вопросы</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Можно ли зарегистрировать Prochat для себя по своей ссылке?</div>
+        <div class="faq-a">Нет. Самореферал запрещён. Комиссия начисляется только с новых клиентов, которых вы привели — не с собственных аккаунтов.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Как долго платится комиссия с одного клиента?</div>
+        <div class="faq-a">Всё время, пока клиент активно пользуется Prochat и платит за тариф. Если клиент перешёл на бесплатный план или отменил подписку — начисления приостанавливаются. Когда возобновит — снова идут к вам.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Я устанавливаю сайты клиентам. Как это работает?</div>
+        <div class="faq-a">Отлично подходит. Регистрируете клиента по вашей ссылке или передаёте ему ссылку для самостоятельной регистрации. Как только он оплачивает тариф — 50% идут вам. Если ведёте много клиентов, доход накапливается быстро.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Что будет если клиент запросит возврат по гарантии 30 дней?</div>
+        <div class="faq-a">Если клиент воспользовался гарантией возврата, соответствующая комиссия с этого платежа вычитается из вашего баланса. Это честно по отношению ко всем сторонам.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Когда и как я получу деньги?</div>
+        <div class="faq-a">Выплаты производятся 1-го числа каждого месяца на указанные реквизиты (Uzcard, Humo или банковский счёт). Минимальная сумма к выплате — 50 000 сум. Если накоплено меньше, сумма переносится на следующий месяц.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Нужен ли юридический договор?</div>
+        <div class="faq-a">Для физических лиц — нет, партнёрство работает на основании принятия условий программы. Для компаний и агентств, которым нужна официальная документация — заключаем договор. Напишите на partners@prochat.uz.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="partner-cta">
+  <div class="container">
+    <h2>Готовы начать зарабатывать?</h2>
+    <p>Напишите нам — и мы подготовим ваш партнёрский аккаунт в течение рабочего дня</p>
+    <a href="mailto:partners@prochat.uz?subject=Заявка на участие в партнёрской программе">Стать партнёром →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-bottom">
+    <div class="container">
+      <span>© 2026 Prochat · YATT MOSKOVSEV A.A · ИНН 487064196 · Ташкент, Узбекистан</span>
+      <span><a href="privacy.html">Конфиденциальность</a> · <a href="terms.html">Условия</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="i18n-pages.js"></script>
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    item.classList.toggle('open');
+  });
+});
+
+// Partner income calculator
+function calcPartner() {
+  const clients = +document.getElementById('clientsRange').value;
+  document.getElementById('clientsVal').textContent = clients;
+  const plan = +document.getElementById('planSelect').value;
+  const commission = 0.5;
+  const monthly = clients * plan * commission;
+  const yearly = monthly * 12;
+  const three = yearly * 3;
+  const fmt = n => Math.round(n).toLocaleString('ru') + ' сум';
+  document.getElementById('resMonth').textContent = fmt(monthly);
+  document.getElementById('resYear').textContent = fmt(yearly);
+  document.getElementById('res3Year').textContent = fmt(three);
+}
+calcPartner();
+</script>
+</body>
+</html>
