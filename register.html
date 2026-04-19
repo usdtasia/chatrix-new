@@ -27,18 +27,38 @@
     .reg-reassure { margin-top: 32px; padding: 20px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); font-size: 13px; color: var(--text-muted); line-height: 1.6; }
     .reg-reassure strong { color: var(--text); }
 
-    .reg-iframe-wrap { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 8px; box-shadow: var(--shadow); overflow: hidden; }
-    .reg-iframe { width: 100%; height: 620px; border: 0; display: block; border-radius: calc(var(--radius-lg) - 6px); background: var(--bg2); }
-    .reg-login-hint { text-align: center; margin-top: 18px; font-size: 14px; color: var(--text-muted); }
+    .reg-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow); }
+    .reg-card h2 { font-size: 22px; font-weight: 800; margin-bottom: 24px; }
+
+    .reg-form { display: flex; flex-direction: column; gap: 14px; }
+    .reg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .reg-field { display: flex; flex-direction: column; gap: 6px; }
+    .reg-field label { font-size: 13px; font-weight: 600; color: var(--text); }
+    .reg-req { color: #ef4444; }
+    .reg-opt { color: var(--text-muted); font-weight: 500; margin-left: 4px; font-size: 12px; }
+    .reg-form input { width: 100%; padding: 11px 14px; font-size: 15px; font-family: inherit; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); box-sizing: border-box; transition: border-color .15s, box-shadow .15s; }
+    .reg-form input:hover { border-color: #cbd5e1; }
+    .reg-form input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(99,102,241,.15); }
+    .reg-hint { font-size: 12px; color: var(--text-muted); }
+    .reg-error { display: none; padding: 10px 14px; border-radius: var(--radius); background: #fef2f2; border: 1px solid #fecaca; color: #b91c1c; font-size: 13px; line-height: 1.5; }
+    .reg-error.show { display: block; }
+    .reg-submit { width: 100%; padding: 14px; background: var(--primary); color: #fff; border: 0; border-radius: var(--radius); font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer; transition: background .15s, transform .1s; margin-top: 6px; }
+    .reg-submit:hover:not(:disabled) { background: var(--primary-dark); }
+    .reg-submit:active:not(:disabled) { transform: translateY(1px); }
+    .reg-submit:disabled { opacity: .6; cursor: not-allowed; }
+    .reg-login-hint { text-align: center; margin-top: 16px; font-size: 14px; color: var(--text-muted); }
     .reg-login-hint a { color: var(--primary); text-decoration: none; font-weight: 600; }
     .reg-login-hint a:hover { text-decoration: underline; }
 
     [data-theme="dark"] .reg-hero { background: linear-gradient(135deg, #1e1b4b, #1f2937); }
-    [data-theme="dark"] .reg-iframe-wrap { background: #1f2937; border-color: #374151; }
+    [data-theme="dark"] .reg-card { background: #1f2937; border-color: #374151; }
     [data-theme="dark"] .reg-reassure { background: #1f2937; border-color: #374151; }
+    [data-theme="dark"] .reg-form input { background: #111827; border-color: #374151; }
+    [data-theme="dark"] .reg-form input:hover { border-color: #4b5563; }
+    [data-theme="dark"] .reg-error { background: #3f1d1d; border-color: #7f1d1d; color: #fca5a5; }
 
     @media (max-width: 960px) { .reg-grid { grid-template-columns: 1fr; gap: 40px; } }
-    @media (max-width: 600px) { .reg-iframe { height: 660px; } }
+    @media (max-width: 520px) { .reg-row { grid-template-columns: 1fr; } .reg-card { padding: 24px; } }
   </style>
 </head>
 <body>
@@ -110,13 +130,43 @@
       </div>
 
       <div>
-        <div class="reg-iframe-wrap">
-          <iframe
-            class="reg-iframe"
-            src="https://app.prochat.uz/register?embed=1"
-            title="Регистрация Prochat"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="reg-card">
+          <h2>Регистрация</h2>
+          <form id="reg-form" class="reg-form" novalidate>
+            <div class="reg-field">
+              <label for="rf-orgName">Название компании <span class="reg-req">*</span></label>
+              <input id="rf-orgName" name="orgName" type="text" required autocomplete="organization" />
+            </div>
+            <div class="reg-field">
+              <label for="rf-name">Ваше имя <span class="reg-req">*</span></label>
+              <input id="rf-name" name="name" type="text" required autocomplete="name" />
+            </div>
+            <div class="reg-field">
+              <label for="rf-email">Email <span class="reg-req">*</span></label>
+              <input id="rf-email" name="email" type="email" required autocomplete="email" />
+            </div>
+            <div class="reg-field">
+              <label for="rf-password">Пароль <span class="reg-req">*</span></label>
+              <input id="rf-password" name="password" type="password" required minlength="8" autocomplete="new-password" />
+              <div class="reg-hint">Минимум 8 символов</div>
+            </div>
+            <div class="reg-row">
+              <div class="reg-field">
+                <label for="rf-phone">Телефон <span class="reg-opt">(необязательно)</span></label>
+                <input id="rf-phone" name="phone" type="tel" placeholder="+998 90 123 45 67" autocomplete="tel" />
+              </div>
+              <div class="reg-field">
+                <label for="rf-telegram">Telegram <span class="reg-opt">(необязательно)</span></label>
+                <input id="rf-telegram" name="telegram" type="text" placeholder="@username" />
+              </div>
+            </div>
+            <div class="reg-field">
+              <label for="rf-website">Ваш сайт <span class="reg-opt">(необязательно)</span></label>
+              <input id="rf-website" name="website" type="text" placeholder="example.com" />
+            </div>
+            <div class="reg-error" id="reg-error"></div>
+            <button type="submit" class="reg-submit" id="reg-submit">Создать аккаунт</button>
+          </form>
         </div>
         <p class="reg-login-hint">Уже есть аккаунт? <a href="https://app.prochat.uz/login">Войти</a></p>
       </div>
@@ -135,6 +185,46 @@
 </footer>
 
 <script src="i18n-pages.js"></script>
+<script>
+(function () {
+  var form = document.getElementById('reg-form');
+  if (!form) return;
+  var errEl = document.getElementById('reg-error');
+  var btn = document.getElementById('reg-submit');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    errEl.classList.remove('show');
+    errEl.textContent = '';
+
+    var data = Object.fromEntries(new FormData(form));
+    Object.keys(data).forEach(function (k) { if (typeof data[k] === 'string') data[k] = data[k].trim(); });
+    Object.keys(data).forEach(function (k) { if (data[k] === '') delete data[k]; });
+
+    btn.disabled = true;
+    btn.textContent = 'Создаём аккаунт…';
+
+    try {
+      var res = await fetch('https://api.prochat.uz/api/v1/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) {
+        var body = await res.json().catch(function () { return {}; });
+        var msg = Array.isArray(body.message) ? body.message.join(', ') : (body.message || 'Ошибка регистрации');
+        throw new Error(msg);
+      }
+      window.location.href = 'https://app.prochat.uz/login?registered=1&email=' + encodeURIComponent(data.email || '');
+    } catch (err) {
+      errEl.textContent = err.message || 'Не удалось создать аккаунт. Попробуйте ещё раз.';
+      errEl.classList.add('show');
+      btn.disabled = false;
+      btn.textContent = 'Создать аккаунт';
+    }
+  });
+})();
+</script>
 <!-- LiveChat AI widget -->
 <script>
   window.LiveChatSetup = {
@@ -143,6 +233,5 @@
   };
 </script>
 <script async src="https://cdn.prochat.uz/widget.js"></script>
-<script defer src="register-modal.js"></script>
 </body>
 </html>
