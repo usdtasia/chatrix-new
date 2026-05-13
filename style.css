@@ -1009,6 +1009,10 @@ ul { list-style: none; }
 }
 .footer-bottom a { color: rgba(255,255,255,.5); }
 .footer-bottom a:hover { color: #fff; }
+.footer-made-by { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,.4); font-size: 12px; }
+.footer-made-link { display: inline-flex; align-items: center; gap: 4px; color: rgba(255,255,255,.7) !important; font-weight: 600; padding: 3px 8px; border-radius: 6px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); transition: .15s; text-decoration: none; }
+.footer-made-link:hover { background: rgba(255,255,255,.1); color: #fff !important; border-color: rgba(255,255,255,.2); }
+.footer-made-link::before { content: '⚡'; font-size: 11px; opacity: .8; }
 
 /* ===== USE CASES ===== */
 .usecases { padding: 96px 0; background: var(--bg2); }

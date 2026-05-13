@@ -68,6 +68,14 @@
     .resp-dot.green { background: #22c55e; }
     .resp-dot.yellow { background: #eab308; }
 
+    /* Phone reveal */
+    .phone-reveal { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700; }
+    .phone-reveal .phone-blur { filter: blur(7px); user-select: none; transition: filter .25s; letter-spacing: 1px; }
+    .phone-reveal.shown .phone-blur { filter: none; user-select: text; }
+    .phone-reveal-btn { font-size: 12px; padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); cursor: pointer; color: var(--primary); font-weight: 600; font-family: inherit; }
+    .phone-reveal-btn:hover { border-color: var(--primary); background: var(--primary-light); }
+    .phone-reveal.shown .phone-reveal-btn { display: none; }
+
     [data-theme="dark"] .contact-hero { background: linear-gradient(135deg, #1e1b4b, #1f2937); }
     [data-theme="dark"] .contact-form-card { background: #1f2937; border-color: #374151; }
     [data-theme="dark"] .contact-info { background: #1f2937; border-color: #374151; }
@@ -125,17 +133,29 @@
       <div>
         <div class="resp-badges">
           <div class="resp-badge"><div class="resp-dot green"></div>Telegram — обычно до 1 часа</div>
+          <div class="resp-badge"><div class="resp-dot yellow"></div>Email — до 1 рабочего дня</div>
         </div>
 
         <div class="contact-channels">
           <a href="https://t.me/bakhtikhasanov" class="contact-channel" target="_blank">
             <div class="contact-channel-icon tg">✈️</div>
             <div class="contact-channel-info">
-              <strong>Telegram — Бахтиёр Хасанов</strong>
-              <span>@bakhtikhasanov · Отвечает быстрее всего</span>
+              <strong>Telegram — по всем вопросам</strong>
+              <span>Отвечаем быстрее всего</span>
             </div>
             <div class="contact-channel-arrow">→</div>
           </a>
+
+          <div class="contact-channel">
+            <div class="contact-channel-icon sales">📞</div>
+            <div class="contact-channel-info">
+              <strong>Телефон — по всем вопросам</strong>
+              <div class="phone-reveal" id="phoneReveal">
+                <span class="phone-blur" id="phoneNumber">+998 94 123-42-07</span>
+                <button type="button" class="phone-reveal-btn" onclick="revealPhone()">Показать</button>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="contact-info">
@@ -154,7 +174,7 @@
           </div>
           <div class="contact-info-row">
             <span>⏰</span>
-            <span>Пн–Пт, 09:00–18:00 (UTC+5). AI отвечает 24/7.</span>
+            <span>Пн–Пт, 09:00–18:00 (UTC+5)</span>
           </div>
         </div>
       </div>
@@ -162,7 +182,7 @@
       <!-- RIGHT: FORM -->
       <div class="contact-form-card">
         <h2>Написать нам</h2>
-        <p class="sub">Заполните форму — откроем Telegram с готовым сообщением</p>
+        <p class="sub">Заполните форму — ответим в течение рабочего дня</p>
 
         <form id="contactForm" onsubmit="submitForm(event)">
           <div class="form-row">
@@ -171,8 +191,8 @@
               <input id="f_name" type="text" placeholder="Алексей" required />
             </div>
             <div class="form-field">
-              <label>Контакт *</label>
-              <input id="f_contact" type="text" placeholder="email или @telegram" required />
+              <label>Email *</label>
+              <input id="f_contact" type="email" placeholder="you@company.uz" required />
             </div>
           </div>
           <div class="form-field">
@@ -190,14 +210,15 @@
             <label>Сообщение *</label>
             <textarea id="f_msg" placeholder="Опишите ваш вопрос или задачу..." required></textarea>
           </div>
-          <button type="submit" class="form-submit">Отправить через Telegram →</button>
-          <p class="form-note">Откроется Telegram-чат с готовым сообщением. Нажимая «Отправить», вы соглашаетесь с <a href="privacy.html" style="color:var(--primary)">политикой конфиденциальности</a></p>
+          <button type="submit" class="form-submit" id="submitBtn">Отправить сообщение →</button>
+          <p class="form-note" id="formError" style="color:#dc2626; display:none;"></p>
+          <p class="form-note">Нажимая «Отправить», вы соглашаетесь с <a href="privacy.html" style="color:var(--primary)">политикой конфиденциальности</a></p>
         </form>
 
         <div class="form-success" id="formSuccess">
           <div class="check">✅</div>
-          <h3>Открываем Telegram…</h3>
-          <p>Если чат не открылся автоматически — <a id="tgFallback" href="https://t.me/bakhtikhasanov" target="_blank" style="color:var(--primary)">нажмите сюда</a>, текст уже скопирован в буфер обмена.</p>
+          <h3>Сообщение отправлено</h3>
+          <p>Мы получили ваше письмо и ответим в течение рабочего дня.</p>
         </div>
       </div>
 
@@ -209,6 +230,10 @@
   <div class="footer-bottom">
     <div class="container">
       <span>© 2026 Prochat · YATT MOSKOVSEV A.A · ИНН 487064196 · Ташкент, Узбекистан</span>
+      <span class="footer-made-by">
+        Разработано
+        <a href="https://1dev.uz" target="_blank" rel="noopener" class="footer-made-link">1dev.uz</a>
+      </span>
       <span><a href="privacy.html">Конфиденциальность</a> · <a href="terms.html">Условия</a></span>
     </div>
   </div>
@@ -216,21 +241,60 @@
 
 <script src="i18n-pages.js"></script>
 <script>
-function submitForm(e) {
+function revealPhone() {
+  document.getElementById('phoneReveal').classList.add('shown');
+  // optional: turn into clickable tel: link once revealed
+  var num = document.getElementById('phoneNumber');
+  if (!num.dataset.linked) {
+    var a = document.createElement('a');
+    a.href = 'tel:+998941234207';
+    a.style.color = 'inherit';
+    a.style.textDecoration = 'none';
+    a.textContent = num.textContent;
+    num.parentNode.replaceChild(a, num);
+    a.id = 'phoneNumber';
+    a.dataset.linked = '1';
+  }
+}
+
+async function submitForm(e) {
   e.preventDefault();
+  var btn = document.getElementById('submitBtn');
+  var errBox = document.getElementById('formError');
+  errBox.style.display = 'none';
+  btn.disabled = true;
+  btn.textContent = 'Отправка…';
+
   var name = document.getElementById('f_name').value.trim();
   var contact = document.getElementById('f_contact').value.trim();
   var topic = document.getElementById('f_topic').value;
   var msg = document.getElementById('f_msg').value.trim();
-  var text = 'Здравствуйте! Я с prochat.uz.\n\n' +
-             'Имя: ' + name + '\n' +
-             'Контакт: ' + contact + '\n' +
-             'Тема: ' + topic + '\n\n' +
-             'Сообщение:\n' + msg;
-  try { navigator.clipboard && navigator.clipboard.writeText(text); } catch (err) {}
-  document.getElementById('contactForm').style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
-  window.open('https://t.me/bakhtikhasanov', '_blank');
+
+  var payload = {
+    name: name,
+    email: contact,
+    company: 'Prochat.uz · ' + topic,
+    message: msg
+  };
+
+  try {
+    // Cross-origin POST to onedev.uz/api/contact. We use Content-Type: text/plain
+    // to avoid a CORS preflight (the endpoint doesn't return CORS headers on OPTIONS).
+    // Next.js route handler parses JSON regardless of content-type.
+    var resp = await fetch('https://onedev.uz/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify(payload)
+    });
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  } catch (err) {
+    errBox.textContent = 'Не удалось отправить. Попробуйте ещё раз или напишите в Telegram.';
+    errBox.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Отправить сообщение →';
+  }
 }
 </script>
 <!-- LiveChat AI widget -->
