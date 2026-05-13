@@ -21,10 +21,6 @@
   <meta name="twitter:title" content="Prochat — Онлайн-чат и AI · Узбекистан" />
   <meta name="twitter:description" content="Поддержка узбекского языка. AI-автопилот + живой чат. Telegram, Uzcard, Humo." />
   <link rel="canonical" href="https://prochat.uz/" />
-  <link rel="alternate" hreflang="ru" href="https://prochat.uz/" />
-  <link rel="alternate" hreflang="uz" href="https://prochat.uz/" />
-  <link rel="alternate" hreflang="en" href="https://prochat.uz/" />
-  <link rel="alternate" hreflang="x-default" href="https://prochat.uz/" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -62,8 +58,8 @@
         "description": "Live chat and AI customer support platform for Uzbekistan and CIS businesses. Supports Uzbek, Russian, and English languages.",
         "offers": [
           {"@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "UZS"},
-          {"@type": "Offer", "name": "Essential", "price": "100000", "priceCurrency": "UZS"},
-          {"@type": "Offer", "name": "Pro", "price": "500000", "priceCurrency": "UZS"}
+          {"@type": "Offer", "name": "Start", "price": "149000", "priceCurrency": "UZS"},
+          {"@type": "Offer", "name": "Business", "price": "390000", "priceCurrency": "UZS"}
         ],
         "publisher": {"@id": "https://prochat.uz/#org"}
       }
@@ -767,8 +763,8 @@
           <div class="early-progress-label"><span data-i18n="early_taken">Занято:</span> <strong>12 / 47</strong></div>
         </div>
         <div class="early-perks">
-          <div class="early-perk">✓ <span data-i18n="ep1">Essential навсегда за €15</span></div>
-          <div class="early-perk">✓ <span data-i18n="ep2">Pro — 3 месяца бесплатно</span></div>
+          <div class="early-perk">✓ <span data-i18n="ep1">Start навсегда за 149 000 сум</span></div>
+          <div class="early-perk">✓ <span data-i18n="ep2">Business — 3 месяца бесплатно</span></div>
           <div class="early-perk">✓ <span data-i18n="ep3">Персональный онбординг</span></div>
           <div class="early-perk">✓ <span data-i18n="ep4">Бейдж «Ранний клиент»</span></div>
         </div>
@@ -793,41 +789,47 @@
           <li>✓ 1 <span data-i18n="plan_operator">оператор</span></li>
           <li>✓ 50 <span data-i18n="plan_dialogs">диалогов/мес</span></li>
           <li>✓ 20 <span data-i18n="plan_ai_hints">AI-подсказок/мес</span></li>
-          <li>✓ <span data-i18n="plan_widget">Чат-виджет</span></li>
+          <li>✓ <span data-i18n="plan_widget">Чат-виджет (RU/UZ/EN)</span></li>
+          <li class="dim">✗ <span data-i18n="plan_telegram">Telegram</span></li>
           <li class="dim">✗ <span data-i18n="plan_kb">База знаний</span></li>
           <li class="dim">✗ <span data-i18n="plan_autopilot">AI автопилот</span></li>
         </ul>
         <a href="register.html" class="btn-outline" data-i18n="plan_start">Начать</a>
       </div>
-      <!-- ESSENTIAL -->
+      <!-- START -->
       <div class="plan plan-popular">
         <div class="plan-badge" data-i18n="plan_popular_badge">Популярный</div>
-        <div class="plan-name">Essential</div>
-        <div class="plan-price"><strong>100 000 сум</strong><span data-i18n="plan_per_op">/оператор/мес</span></div>
+        <div class="plan-name">Start</div>
+        <div class="plan-price"><strong>149 000 сум</strong><span data-i18n="plan_per_month">/мес</span></div>
         <ul class="plan-features">
-          <li>✓ <span data-i18n="plan_unlimited_ops">Безлимит операторов</span></li>
-          <li>✓ <span data-i18n="plan_unlimited_dialogs">Безлимит диалогов</span></li>
+          <li>✓ <span data-i18n="plan_up_to_3_ops">До 3 операторов</span></li>
+          <li>✓ 500 <span data-i18n="plan_dialogs">диалогов/мес</span></li>
           <li>✓ 500 <span data-i18n="plan_ai_hints">AI-подсказок/мес</span></li>
+          <li>✓ <span data-i18n="plan_telegram">Telegram</span></li>
+          <li>✓ <span data-i18n="plan_analytics">Аналитика</span></li>
+          <li>✓ Webhooks + API</li>
           <li>✓ White label</li>
-          <li>✓ Webhooks + <span data-i18n="plan_integrations">интеграции</span></li>
           <li class="dim">✗ <span data-i18n="plan_kb">База знаний (RAG)</span></li>
+          <li class="dim">✗ <span data-i18n="plan_autopilot">AI автопилот</span></li>
         </ul>
         <a href="register.html" class="btn-primary" data-i18n="plan_trial">Попробовать 10 дней</a>
         <div class="plan-guarantee">🛡 <span data-i18n="plan_guarantee_text">30 дней — возврат денег</span></div>
       </div>
-      <!-- PRO -->
+      <!-- BUSINESS -->
       <div class="plan">
-        <div class="plan-name">Pro</div>
-        <div class="plan-price"><strong>500 000 сум</strong><span>/мес</span></div>
+        <div class="plan-name">Business</div>
+        <div class="plan-price"><strong>390 000 сум</strong><span data-i18n="plan_per_month">/мес</span></div>
         <ul class="plan-features">
-          <li>✓ <span data-i18n="plan_all_essential">Всё из Essential</span></li>
-          <li>✓ <span data-i18n="plan_kb_rag">База знаний (RAG + pgvector)</span></li>
-          <li>✓ <span data-i18n="plan_autopilot">AI автопилот</span></li>
+          <li>✓ <span data-i18n="plan_unlimited_ops">Безлимит операторов</span></li>
+          <li>✓ <span data-i18n="plan_unlimited_dialogs">Безлимит диалогов</span></li>
           <li>✓ <span data-i18n="plan_unlimited_ai">Безлимит AI-подсказок</span></li>
-          <li>✓ Priority support</li>
+          <li>✓ <span data-i18n="plan_kb_rag">База знаний (RAG + pgvector)</span></li>
+          <li>✓ <span data-i18n="plan_autopilot">AI автопилот 24/7</span></li>
+          <li>✓ <span data-i18n="plan_telegram">Telegram</span></li>
           <li>✓ <span data-i18n="plan_custom_brand">Кастомный брендинг</span></li>
+          <li>✓ <span data-i18n="plan_priority">Приоритетная поддержка</span></li>
         </ul>
-        <a href="register.html" class="btn-outline" data-i18n="plan_choose_pro">Выбрать Pro</a>
+        <a href="register.html" class="btn-outline" data-i18n="plan_choose_business">Выбрать Business</a>
         <div class="plan-guarantee">🛡 <span data-i18n="plan_guarantee_text">30 дней — возврат денег</span></div>
       </div>
     </div>
@@ -1028,7 +1030,7 @@
   </div>
 </div>
 
-<script src="main.js"></script>
+<script src="main.js?v=2"></script>
 <!-- LiveChat AI widget -->
 <script>
   window.LiveChatSetup = {

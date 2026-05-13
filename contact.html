@@ -125,31 +125,14 @@
       <div>
         <div class="resp-badges">
           <div class="resp-badge"><div class="resp-dot green"></div>Telegram — обычно до 1 часа</div>
-          <div class="resp-badge"><div class="resp-dot yellow"></div>Email — до 1 рабочего дня</div>
         </div>
 
         <div class="contact-channels">
-          <a href="https://t.me/prochat_support" class="contact-channel" target="_blank">
+          <a href="https://t.me/bakhtikhasanov" class="contact-channel" target="_blank">
             <div class="contact-channel-icon tg">✈️</div>
             <div class="contact-channel-info">
-              <strong>Telegram — поддержка</strong>
-              <span>@prochat_support · Быстрее всего</span>
-            </div>
-            <div class="contact-channel-arrow">→</div>
-          </a>
-          <a href="mailto:support@prochat.uz" class="contact-channel">
-            <div class="contact-channel-icon mail">📧</div>
-            <div class="contact-channel-info">
-              <strong>support@prochat.uz</strong>
-              <span>Технические вопросы и баги</span>
-            </div>
-            <div class="contact-channel-arrow">→</div>
-          </a>
-          <a href="mailto:sales@prochat.uz" class="contact-channel">
-            <div class="contact-channel-icon sales">💼</div>
-            <div class="contact-channel-info">
-              <strong>sales@prochat.uz</strong>
-              <span>Партнёрство, On-Premise, Enterprise</span>
+              <strong>Telegram — Бахтиёр Хасанов</strong>
+              <span>@bakhtikhasanov · Отвечает быстрее всего</span>
             </div>
             <div class="contact-channel-arrow">→</div>
           </a>
@@ -179,22 +162,22 @@
       <!-- RIGHT: FORM -->
       <div class="contact-form-card">
         <h2>Написать нам</h2>
-        <p class="sub">Заполните форму — мы ответим в течение рабочего дня</p>
+        <p class="sub">Заполните форму — откроем Telegram с готовым сообщением</p>
 
         <form id="contactForm" onsubmit="submitForm(event)">
           <div class="form-row">
             <div class="form-field">
               <label>Имя *</label>
-              <input type="text" placeholder="Алексей" required />
+              <input id="f_name" type="text" placeholder="Алексей" required />
             </div>
             <div class="form-field">
-              <label>Email *</label>
-              <input type="email" placeholder="you@company.uz" required />
+              <label>Контакт *</label>
+              <input id="f_contact" type="text" placeholder="email или @telegram" required />
             </div>
           </div>
           <div class="form-field">
             <label>Тема обращения</label>
-            <select>
+            <select id="f_topic">
               <option>Технический вопрос</option>
               <option>Вопрос по тарифам и оплате</option>
               <option>Партнёрство / агентство</option>
@@ -205,16 +188,16 @@
           </div>
           <div class="form-field">
             <label>Сообщение *</label>
-            <textarea placeholder="Опишите ваш вопрос или задачу..." required></textarea>
+            <textarea id="f_msg" placeholder="Опишите ваш вопрос или задачу..." required></textarea>
           </div>
-          <button type="submit" class="form-submit">Отправить сообщение →</button>
-          <p class="form-note">Нажимая «Отправить», вы соглашаетесь с <a href="privacy.html" style="color:var(--primary)">политикой конфиденциальности</a></p>
+          <button type="submit" class="form-submit">Отправить через Telegram →</button>
+          <p class="form-note">Откроется Telegram-чат с готовым сообщением. Нажимая «Отправить», вы соглашаетесь с <a href="privacy.html" style="color:var(--primary)">политикой конфиденциальности</a></p>
         </form>
 
         <div class="form-success" id="formSuccess">
           <div class="check">✅</div>
-          <h3>Сообщение отправлено!</h3>
-          <p>Мы ответим на ваш email в течение рабочего дня.<br>Если срочно — напишите в <a href="https://t.me/prochat_support" style="color:var(--primary)">Telegram</a>.</p>
+          <h3>Открываем Telegram…</h3>
+          <p>Если чат не открылся автоматически — <a id="tgFallback" href="https://t.me/bakhtikhasanov" target="_blank" style="color:var(--primary)">нажмите сюда</a>, текст уже скопирован в буфер обмена.</p>
         </div>
       </div>
 
@@ -235,9 +218,19 @@
 <script>
 function submitForm(e) {
   e.preventDefault();
-  // TODO: Валера подключит реальный endpoint
+  var name = document.getElementById('f_name').value.trim();
+  var contact = document.getElementById('f_contact').value.trim();
+  var topic = document.getElementById('f_topic').value;
+  var msg = document.getElementById('f_msg').value.trim();
+  var text = 'Здравствуйте! Я с prochat.uz.\n\n' +
+             'Имя: ' + name + '\n' +
+             'Контакт: ' + contact + '\n' +
+             'Тема: ' + topic + '\n\n' +
+             'Сообщение:\n' + msg;
+  try { navigator.clipboard && navigator.clipboard.writeText(text); } catch (err) {}
   document.getElementById('contactForm').style.display = 'none';
   document.getElementById('formSuccess').style.display = 'block';
+  window.open('https://t.me/bakhtikhasanov', '_blank');
 }
 </script>
 <!-- LiveChat AI widget -->
